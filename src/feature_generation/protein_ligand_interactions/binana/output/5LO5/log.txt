@@ -1,0 +1,267 @@
+Command-line parameters used:
+                 Parameter              |            Value           
+   -------------------------------------|----------------------------
+        close_contacts_dist1_cutoff     |             2.5            
+        close_contacts_dist2_cutoff     |             4.0            
+         electrostatic_dist_cutoff      |             4.0            
+    active_site_flexibility_dist_cutoff |             4.0            
+          hydrophobic_dist_cutoff       |             4.0            
+         hydrogen_bond_dist_cutoff      |             4.0            
+         hydrogen_bond_angle_cutoff     |             40.0           
+              pi_padding_dist           |             0.75           
+       pi_pi_interacting_dist_cutoff    |             7.5            
+        pi_stacking_angle_tolerance     |             30.0           
+         T_stacking_angle_tolerance     |             30.0           
+       T_stacking_closest_dist_cutoff   |             5.0            
+           cation_pi_dist_cutoff        |             6.0            
+          salt_bridge_dist_cutoff       |             5.5            
+                  receptor              | /Users/mlugowska/PhD/ML_residence_time_prediction/protein_files/5LO5_protein.pdbqt
+                   ligand               | /Users/mlugowska/PhD/ML_residence_time_prediction/ligand_files/5LO5_ligand.pdbqt
+                 output_dir             | /Users/mlugowska/PhD/ML_residence_time_prediction/feature_generation/protein_ligand_interactions/binana/output/5LO5/
+                output_file             | /Users/mlugowska/PhD/ML_residence_time_prediction/feature_generation/protein_ligand_interactions/binana/output/5LO5/output.pdb
+
+Atom-type pair counts within 2.5 angstroms:
+    Atom Type | Atom Type | Count
+   -----------|-----------|-------
+
+Raw data:
+
+
+Atom-type pair counts within 4.0 angstroms:
+    Atom Type | Atom Type | Count
+   -----------|-----------|-------
+        A     |     C     |   27  
+        C     |     S     |   1   
+        C     |     C     |   9   
+        C     |     NA    |   15  
+        A     |     S     |   1   
+        A     |     OA    |   10  
+        C     |     OA    |   6   
+        OA    |     OA    |   3   
+        A     |     NA    |   5   
+        A     |     A     |   10  
+        NA    |     OA    |   3   
+        NA    |     NA    |   2   
+        A     |     N     |   2   
+        N     |     NA    |   1   
+
+Raw data:
+     UNL(1):C(1) - A:PHE(122):CD2(773)
+     UNL(1):C(1) - A:PHE(122):CE2(774)
+     UNL(1):C(2) - A:MET(82):SD(1564)
+     UNL(1):C(3) - A:PHE(122):CB(771)
+     UNL(1):C(3) - A:PHE(122):CD2(773)
+     UNL(1):C(3) - A:ASN(35):ND2(1406)
+     UNL(1):C(4) - A:ASN(35):CB(1403)
+     UNL(1):C(5) - A:MET(82):SD(1564)
+     UNL(1):C(5) - A:MET(82):CE(1565)
+     UNL(1):C(6) - A:THR(168):OG1(278)
+     UNL(1):C(6) - A:MET(82):CE(1565)
+     UNL(1):C(7) - A:THR(168):CB(276)
+     UNL(1):C(7) - A:THR(168):CG2(277)
+     UNL(1):C(7) - A:THR(168):OG1(278)
+     UNL(1):C(7) - A:ALA(39):CB(1105)
+     UNL(1):C(7) - A:ASN(35):O(1120)
+     UNL(1):C(7) - A:ASP(77):OD2(1553)
+     UNL(1):O(8) - A:THR(168):CB(276)
+     UNL(1):O(8) - A:THR(168):OG1(278)
+     UNL(1):O(8) - A:ALA(39):CB(1105)
+     UNL(1):O(8) - A:SER(36):CA(1117)
+     UNL(1):O(8) - A:ASP(77):CG(1552)
+     UNL(1):O(8) - A:ASP(77):OD2(1553)
+     UNL(1):O(8) - A:ASP(77):OD1(1554)
+     UNL(1):C(9) - A:SER(36):CA(1117)
+     UNL(1):C(9) - A:ASN(35):C(1118)
+     UNL(1):C(9) - A:SER(36):N(1119)
+     UNL(1):C(9) - A:SER(36):OG(1408)
+     UNL(1):C(9) - A:ASP(77):OD2(1553)
+     UNL(1):C(10) - A:ASN(35):CB(1403)
+     UNL(1):C(10) - A:ASN(35):ND2(1406)
+     UNL(1):C(11) - A:PHE(122):CD2(773)
+     UNL(1):C(11) - A:LEU(32):CD1(1396)
+     UNL(1):C(11) - A:ASN(35):CB(1403)
+     UNL(1):C(11) - A:ASN(35):ND2(1406)
+     UNL(1):N(12) - A:VAL(170):CG1(612)
+     UNL(1):N(12) - A:LEU(32):O(1132)
+     UNL(1):N(12) - A:ASN(35):CB(1403)
+     UNL(1):C(13) - A:ASN(35):CB(1403)
+     UNL(1):C(14) - A:THR(168):OG1(278)
+     UNL(1):C(14) - A:ALA(39):CB(1105)
+     UNL(1):C(14) - A:MET(82):CG(1563)
+     UNL(1):C(14) - A:MET(82):CE(1565)
+     UNL(1):N(15) - A:THR(168):OG1(278)
+     UNL(1):N(15) - A:GLY(81):C(918)
+     UNL(1):N(15) - A:GLY(81):O(919)
+     UNL(1):N(15) - A:GLY(81):CA(921)
+     UNL(1):N(15) - A:GLY(81):N(923)
+     UNL(1):N(15) - A:ALA(39):CB(1105)
+     UNL(1):N(15) - A:ILE(80):CG2(1559)
+     UNL(1):N(15) - A:MET(82):CG(1563)
+     UNL(1):C(18) - A:LEU(87):CD2(1577)
+     UNL(1):C(18) - A:LEU(91):CD2(1593)
+     UNL(1):C(19) - A:TRP(146):NE1(677)
+     UNL(1):C(19) - A:LEU(87):O(891)
+     UNL(1):C(19) - A:LEU(91):CB(1591)
+     UNL(1):N(20) - A:TRP(146):CZ2(675)
+     UNL(1):N(20) - A:TRP(146):CE2(676)
+     UNL(1):N(20) - A:TRP(146):NE1(677)
+     UNL(1):C(21) - A:TRP(146):CZ2(675)
+     UNL(1):C(21) - A:TRP(146):CE2(676)
+     UNL(1):C(21) - A:PHE(122):CE1(776)
+     UNL(1):C(22) - A:TRP(146):CH2(674)
+     UNL(1):C(22) - A:TRP(146):CZ2(675)
+     UNL(1):C(22) - A:TRP(146):CE2(676)
+     UNL(1):C(22) - A:PHE(122):CZ(775)
+     UNL(1):C(22) - A:PHE(122):CE1(776)
+     UNL(1):C(23) - A:TRP(146):NE1(677)
+     UNL(1):C(24) - A:PHE(154):CZ(655)
+     UNL(1):C(24) - A:TRP(146):NE1(677)
+     UNL(1):C(24) - A:LEU(87):O(891)
+     UNL(1):C(25) - A:PHE(154):CE2(654)
+     UNL(1):C(25) - A:PHE(154):CZ(655)
+     UNL(1):C(25) - A:ILE(88):O(887)
+     UNL(1):C(26) - A:PHE(154):CE2(654)
+     UNL(1):C(26) - A:GLY(92):CA(873)
+     UNL(1):C(26) - A:PHE(6):CE1(1285)
+     UNL(1):C(26) - A:PHE(6):CD1(1286)
+     UNL(1):C(27) - A:TYR(123):OH(769)
+     UNL(1):C(27) - A:GLY(92):CA(873)
+     UNL(1):C(27) - A:PHE(6):CE1(1285)
+     UNL(1):C(27) - A:PHE(6):CD1(1286)
+     UNL(1):C(27) - A:ILE(10):CD1(1300)
+     UNL(1):C(28) - A:TYR(123):OH(769)
+     UNL(1):C(28) - A:PHE(6):CE1(1285)
+     UNL(1):C(29) - A:GLY(92):CA(873)
+     UNL(1):C(29) - A:PHE(6):CD1(1286)
+     UNL(1):C(29) - A:ILE(10):CD1(1300)
+     UNL(1):N(30) - A:GLN(7):CA(1235)
+     UNL(1):N(30) - A:PHE(6):C(1236)
+     UNL(1):N(30) - A:GLN(7):N(1238)
+     UNL(1):N(30) - A:PHE(6):CA(1239)
+     UNL(1):N(30) - A:GLN(7):CB(1287)
+     UNL(1):N(30) - A:GLN(7):CG(1288)
+     UNL(1):N(30) - A:ILE(10):CD1(1300)
+
+Ligand atom types:
+    Atom Type 
+   -----------
+        C     
+        A     
+        OA    
+        NA    
+        N     
+
+Summed electrostatic energy by atom-type pair, in J/mol:
+    Atom Type | Atom Type | Energy (J/mol)
+   -----------|-----------|----------------
+        A     |     C     |54821.554043759905
+        C     |     S     |-294.8584014798228
+        C     |     C     |14826.30560069828
+        C     |     NA    |-113750.36069365995
+        A     |     S     |-757.3629998800686
+        A     |     OA    |-83704.80210185378
+        C     |     OA    |-111263.43283605864
+        OA    |     OA    |93762.69047308419
+        A     |     NA    |-13609.006222601047
+        A     |     A     |-253.33732439760365
+        NA    |     OA    |57620.06728262286
+        NA    |     NA    |30695.28473551186
+        A     |     N     |-11998.347102822849
+        N     |     NA    |31095.963025192752
+
+Number of rotatable bonds in the ligand: 8
+
+Active-site flexibility:
+    Sidechain/Backbone | Secondary Structure | Count 
+   --------------------|---------------------|-------
+         SIDECHAIN     |        OTHER        |   75  
+         BACKBONE      |        OTHER        |   20  
+
+Hydrogen bonds:
+    Location of Donor | Sidechain/Backbone | Secondary Structure | Count 
+   -------------------|--------------------|---------------------|-------
+
+Raw data:
+
+Hydrophobic contacts (C-C):
+    Sidechain/Backbone | Secondary Structure | Count 
+   --------------------|---------------------|-------
+         SIDECHAIN     |        OTHER        |   41  
+         BACKBONE      |        OTHER        |   5   
+
+Raw data:
+     UNL(1):C(1) - A:PHE(122):CD2(773)
+     UNL(1):C(1) - A:PHE(122):CE2(774)
+     UNL(1):C(3) - A:PHE(122):CB(771)
+     UNL(1):C(3) - A:PHE(122):CD2(773)
+     UNL(1):C(4) - A:ASN(35):CB(1403)
+     UNL(1):C(5) - A:MET(82):CE(1565)
+     UNL(1):C(6) - A:MET(82):CE(1565)
+     UNL(1):C(7) - A:THR(168):CB(276)
+     UNL(1):C(7) - A:THR(168):CG2(277)
+     UNL(1):C(7) - A:ALA(39):CB(1105)
+     UNL(1):C(9) - A:SER(36):CA(1117)
+     UNL(1):C(9) - A:ASN(35):C(1118)
+     UNL(1):C(10) - A:ASN(35):CB(1403)
+     UNL(1):C(11) - A:PHE(122):CD2(773)
+     UNL(1):C(11) - A:LEU(32):CD1(1396)
+     UNL(1):C(11) - A:ASN(35):CB(1403)
+     UNL(1):C(13) - A:ASN(35):CB(1403)
+     UNL(1):C(14) - A:ALA(39):CB(1105)
+     UNL(1):C(14) - A:MET(82):CG(1563)
+     UNL(1):C(14) - A:MET(82):CE(1565)
+     UNL(1):C(18) - A:LEU(87):CD2(1577)
+     UNL(1):C(18) - A:LEU(91):CD2(1593)
+     UNL(1):C(19) - A:LEU(91):CB(1591)
+     UNL(1):C(21) - A:TRP(146):CZ2(675)
+     UNL(1):C(21) - A:TRP(146):CE2(676)
+     UNL(1):C(21) - A:PHE(122):CE1(776)
+     UNL(1):C(22) - A:TRP(146):CH2(674)
+     UNL(1):C(22) - A:TRP(146):CZ2(675)
+     UNL(1):C(22) - A:TRP(146):CE2(676)
+     UNL(1):C(22) - A:PHE(122):CZ(775)
+     UNL(1):C(22) - A:PHE(122):CE1(776)
+     UNL(1):C(24) - A:PHE(154):CZ(655)
+     UNL(1):C(25) - A:PHE(154):CE2(654)
+     UNL(1):C(25) - A:PHE(154):CZ(655)
+     UNL(1):C(26) - A:PHE(154):CE2(654)
+     UNL(1):C(26) - A:GLY(92):CA(873)
+     UNL(1):C(26) - A:PHE(6):CE1(1285)
+     UNL(1):C(26) - A:PHE(6):CD1(1286)
+     UNL(1):C(27) - A:GLY(92):CA(873)
+     UNL(1):C(27) - A:PHE(6):CE1(1285)
+     UNL(1):C(27) - A:PHE(6):CD1(1286)
+     UNL(1):C(27) - A:ILE(10):CD1(1300)
+     UNL(1):C(28) - A:PHE(6):CE1(1285)
+     UNL(1):C(29) - A:GLY(92):CA(873)
+     UNL(1):C(29) - A:PHE(6):CD1(1286)
+     UNL(1):C(29) - A:ILE(10):CD1(1300)
+
+pi-pi stacking interactions:
+    Secondary Structure | Count 
+   ---------------------|-------
+
+Raw data:
+
+T-stacking (face-to-edge) interactions:
+    Secondary Structure | Count 
+   ---------------------|-------
+
+Raw data:
+
+Cation-pi interactions:
+    Which residue is charged? | Secondary Structure | Count 
+   ---------------------------|---------------------|-------
+              LIGAND          |        OTHER        |   4   
+
+Raw data:
+     [UNL(1):N(20) / UNL(1):C(19) / UNL(1):C(21) / UNL(1):C(23)] - [A:PHE(154):CG(652) / A:PHE(154):CD1(657) / A:PHE(154):CE1(656) / A:PHE(154):CZ(655) / A:PHE(154):CE2(654) / A:PHE(154):CD2(653)]
+     [UNL(1):N(17) / UNL(1):C(16) / UNL(1):C(18) / UNL(1):C(22)] - [A:TRP(146):CG(670) / A:TRP(146):CD1(678) / A:TRP(146):NE1(677) / A:TRP(146):CE2(676) / A:TRP(146):CD2(671)]
+     [UNL(1):N(17) / UNL(1):C(16) / UNL(1):C(18) / UNL(1):C(22)] - [A:TRP(146):CE2(676) / A:TRP(146):CD2(671) / A:TRP(146):CE3(672) / A:TRP(146):CZ3(673) / A:TRP(146):CH2(674) / A:TRP(146):CZ2(675)]
+     [UNL(1):N(17) / UNL(1):C(16) / UNL(1):C(18) / UNL(1):C(22)] - [A:PHE(122):CG(772) / A:PHE(122):CD1(777) / A:PHE(122):CE1(776) / A:PHE(122):CZ(775) / A:PHE(122):CE2(774) / A:PHE(122):CD2(773)]
+
+Salt Bridges:
+    Secondary Structure | Count 
+   ---------------------|-------
+
+Raw data:

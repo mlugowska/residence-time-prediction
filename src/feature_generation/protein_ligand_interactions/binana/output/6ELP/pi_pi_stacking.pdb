@@ -1,0 +1,12 @@
+ATOM      1  C   PIS             4.815  32.208  25.305                       C
+ATOM      2  N   PIS             5.834  32.903  25.811                       N
+ATOM      3  C   PIS             7.047  32.370  25.985                       C
+ATOM      4  C   PIS             7.290  31.040  25.630                       C
+ATOM      5  C   PIS             6.247  30.272  25.100                       C
+ATOM      6  C   PIS             4.994  30.881  24.909                       C
+ATOM      7  CG  PIS             4.868  31.321  28.855                       C
+ATOM      8 CD1  PIS             3.653  30.682  28.599                       C
+ATOM      9 CE1  PIS             3.618  29.337  28.214                       C
+ATOM     10  CZ  PIS             4.804  28.631  28.063                       C
+ATOM     11 CE2  PIS             6.013  29.242  28.331                       C
+ATOM     12 CD2  PIS             6.046  30.583  28.731                       C

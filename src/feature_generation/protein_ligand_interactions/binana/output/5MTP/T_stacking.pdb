@@ -1,0 +1,12 @@
+ATOM      1  C   PIT            11.988  -5.788  50.648                       C
+ATOM      2  C   PIT            10.924  -5.801  51.546                       C
+ATOM      3  C   PIT            10.598  -4.632  52.207                       C
+ATOM      4  C   PIT            11.294  -3.438  51.918                       C
+ATOM      5  C   PIT            12.329  -3.444  50.991                       C
+ATOM      6  C   PIT            12.635  -4.607  50.374                       C
+ATOM      7  CG  PIT             8.812  -9.050  51.734                       C
+ATOM      8 CD1  PIT             8.775  -9.145  50.372                       C
+ATOM      9 CE1  PIT             9.765  -9.809  49.668                       C
+ATOM     10  CZ  PIT            10.756 -10.483  50.352                       C
+ATOM     11 CE2  PIT            10.821 -10.406  51.705                       C
+ATOM     12 CD2  PIT             9.855  -9.689  52.400                       C

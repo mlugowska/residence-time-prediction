@@ -1,0 +1,85 @@
+HETATM    1  H02 UNK     0       5.171  21.493  46.036  0.00  0.00           H  
+HETATM    2  H04 UNK     0       3.284  17.285  46.600  0.00  0.00           H  
+HETATM    3  H06 UNK     0       4.073  16.694  44.694  0.00  0.00           H  
+HETATM    4  H03 UNK     0       6.324  17.312  48.518  0.00  0.00           H  
+HETATM    5  H08 UNK     0       6.639  16.016  45.856  0.00  0.00           H  
+HETATM    6  H07 UNK     0       4.217  15.119  45.665  0.00  0.00           H  
+HETATM    7  H11 UNK     0       7.055  14.162  44.835  0.00  0.00           H  
+HETATM    8  H10 UNK     0       5.362  14.203  44.122  0.00  0.00           H  
+HETATM    9  H09 UNK     0       6.190  16.833  44.287  0.00  0.00           H  
+HETATM   10  H05 UNK     0       4.498  16.279  47.581  0.00  0.00           H  
+HETATM   11  H15 UNK     0       6.364  14.820  40.737  0.00  0.00           H  
+HETATM   12  H14 UNK     0       5.015  15.224  41.825  0.00  0.00           H  
+HETATM   13  H13 UNK     0       7.278  15.832  42.713  0.00  0.00           H  
+HETATM   14  H16 UNK     0       5.575  13.541  41.692  0.00  0.00           H  
+HETATM   15  H20 UNK     0      10.525  20.428  45.158  0.00  0.00           H  
+HETATM   16  H19 UNK     0      11.858  22.453  45.708  0.00  0.00           H  
+HETATM   17  H18 UNK     0      10.923  24.174  47.261  0.00  0.00           H  
+HETATM   18  H21 UNK     0       8.285  20.089  46.183  0.00  0.00           H  
+HETATM   19  H17 UNK     0       8.026  18.616  49.439  0.00  0.00           H  
+HETATM   20  H12 UNK     0       7.618  14.032  42.740  0.00  0.00           H  
+HETATM   21  H01 UNK     0       3.990  19.361  45.510  0.00  0.00           H  
+HETATM   22  C   UNK     0       4.762  19.385  46.279  0.00  0.00           C  
+HETATM   23  C   UNK     0       5.427  20.579  46.573  0.00  0.00           C  
+HETATM   24  C   UNK     0       6.422  20.599  47.558  0.00  0.00           C  
+HETATM   25  C   UNK     0       6.738  19.430  48.255  0.00  0.00           C  
+HETATM   26  C   UNK     0       6.077  18.224  47.974  0.00  0.00           C  
+HETATM   27  C   UNK     0       5.095  18.220  46.980  0.00  0.00           C  
+HETATM   28  C   UNK     0       4.309  16.937  46.733  0.00  0.00           C  
+HETATM   29  C   UNK     0       4.579  16.130  45.478  0.00  0.00           C  
+HETATM   30  C   UNK     0       6.002  16.005  44.971  0.00  0.00           C  
+HETATM   31  C   UNK     0       6.322  14.705  44.238  0.00  0.00           C  
+HETATM   32  C   UNK     0       6.876  14.825  42.828  0.00  0.00           C  
+HETATM   33  C   UNK     0       5.887  14.585  41.689  0.00  0.00           C  
+HETATM   34  O   UNK     0       7.733  19.502  49.214  0.00  0.00           O  
+HETATM   35  O   UNK     0       7.061  21.812  47.867  0.00  0.00           O  
+HETATM   36  C   UNK     0       8.328  21.945  47.273  0.00  0.00           C  
+HETATM   37  C   UNK     0       9.082  23.079  47.554  0.00  0.00           C  
+HETATM   38  C   UNK     0      10.349  23.281  47.013  0.00  0.00           C  
+HETATM   39  C   UNK     0      10.870  22.316  46.146  0.00  0.00           C  
+HETATM   40  C   UNK     0      10.122  21.175  45.842  0.00  0.00           C  
+HETATM   41  C   UNK     0       8.857  20.988  46.413  0.00  0.00           C  
+HETATM   42 Br   UNK     0       8.325  24.382  48.735  0.00  0.00          Br  
+CONECT    1   23
+CONECT    2   28
+CONECT    3   29
+CONECT    4   26
+CONECT    5   30
+CONECT    6   29
+CONECT    7   31
+CONECT    8   31
+CONECT    9   30
+CONECT   10   28
+CONECT   11   33
+CONECT   12   33
+CONECT   13   32
+CONECT   14   33
+CONECT   15   40
+CONECT   16   39
+CONECT   17   38
+CONECT   18   41
+CONECT   19   34
+CONECT   20   32
+CONECT   21   22
+CONECT   22   21   23   27
+CONECT   23   22    1   24
+CONECT   24   23   25   35
+CONECT   25   24   34   26
+CONECT   26    4   25   27
+CONECT   27   22   26   28
+CONECT   28    2   10   27   29
+CONECT   29    3    6   28   30
+CONECT   30    5    9   29   31
+CONECT   31    7    8   30   32
+CONECT   32   13   20   31   33
+CONECT   33   11   12   14   32
+CONECT   34   25   19
+CONECT   35   24   36
+CONECT   36   35   37   41
+CONECT   37   36   42   38
+CONECT   38   17   37   39
+CONECT   39   16   38   40
+CONECT   40   15   39   41
+CONECT   41   40   18   36
+CONECT   42   37
+END
