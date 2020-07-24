@@ -1,0 +1,10 @@
+source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
+source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
+LIG = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/4OHU_2TK/4OHU_2TK_noconnect.mol2
+check LIG
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/4OHU_2TK/4OHU_2TK.frcmod
+saveoff LIG /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/4OHU_2TK/4OHU_2TK.lib
+saveamberparm LIG /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/4OHU_2TK/4OHU_2TK.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/4OHU_2TK/4OHU_2TK.inpcrd
+savepdb LIG /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/4OHU_2TK/4OHU_2TK.pdb
+charge LIG
+quit

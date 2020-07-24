@@ -1,0 +1,13 @@
+source /hits/fast/mcm/app/amber/amber14-intel/dat/leap/cmd/leaprc.ff14SB
+source /hits/fast/mcm/app/amber/amber14-intel/dat/leap/cmd/leaprc.gaff
+loadamberparams /hits/mcm/app/amber/amber14-intel/dat/leap/parm/frcmod.ionsjc_tip3p
+loadamberparams INH.frcmod
+loadoff INH.lib
+complex  = loadpdb prot_lig.pdb
+solvateBox complex TIP3PBOX 10
+charge complex
+addionsrand complex Na+ 31 Cl- 24
+charge complex
+saveamberparm complex ref.prmtop ref.inpcrd
+savepdb complex ref.pdb
+quit
