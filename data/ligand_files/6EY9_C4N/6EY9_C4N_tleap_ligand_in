@@ -1,0 +1,10 @@
+source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
+source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
+C4N = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EY9_C4N/6EY9_C4N_noconnect.mol2
+check C4N
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EY9_C4N/6EY9_C4N.frcmod
+saveoff C4N /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EY9_C4N/6EY9_C4N.lib
+saveamberparm C4N /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EY9_C4N/6EY9_C4N.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EY9_C4N/6EY9_C4N.inpcrd
+savepdb C4N /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EY9_C4N/6EY9_C4N.pdb
+charge C4N
+quit

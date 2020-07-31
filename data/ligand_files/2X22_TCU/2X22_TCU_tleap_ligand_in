@@ -1,0 +1,10 @@
+source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
+source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
+TCU = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/2X22_TCU/2X22_TCU_noconnect.mol2
+check TCU
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/2X22_TCU/2X22_TCU.frcmod
+saveoff TCU /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/2X22_TCU/2X22_TCU.lib
+saveamberparm TCU /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/2X22_TCU/2X22_TCU.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/2X22_TCU/2X22_TCU.inpcrd
+savepdb TCU /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/2X22_TCU/2X22_TCU.pdb
+charge TCU
+quit

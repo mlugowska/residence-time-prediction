@@ -1,13 +1,9 @@
-import os
 from typing import List
 
 import pandas as pd
 
-from utils.externals import LIGAND_PATH, STRUCTURES_FILE
-from utils.get_pdb_files import get_files
-
-ligand_structures = get_files(os.path.join(LIGAND_PATH, 'protonated'), 'pdb')
-os.chdir(os.getcwd())
+from src.utils import externals
+from src.utils.get_pdb_files import get_files
 
 
 def read_ligand_name(structures_file: str, pdb_file: str):
@@ -17,19 +13,24 @@ def read_ligand_name(structures_file: str, pdb_file: str):
     return row['Ligand Code'].values[0]
 
 
-def remove_conect(file_name: str, file_obj: object):
+def remove_connect(file_name: str, file_obj: List):
+    excluded = ['Cl', 'CL', 'CONECT']
     with open(file_name, 'w') as outfile:
         for index, line in enumerate(file_obj):
-            if 'CONECT' not in line:
+            if not any(s in line for s in excluded):
                 outfile.write(line)
 
 
 def remove_connects_from_file(structure_files: List):
     for pdb_file in structure_files:
         infile = open(pdb_file, 'r').readlines()
-        ligand_code = read_ligand_name(STRUCTURES_FILE, pdb_file)
-        remove_conect(file_name=f'{pdb_file[:-14]}_{ligand_code}_noconnect.pdb', file_obj=infile)
+        ligand_code = read_ligand_name(externals.STRUCTURES_FILE, pdb_file)
+        remove_connect(file_name=f'{pdb_file[:-14]}_{ligand_code}_HH_noconnect.pdb', file_obj=infile)
 
 
 def run():
+    ligand_structures = get_files(externals.LIGAND_PATH, '_HH.pdb')
     remove_connects_from_file(ligand_structures)
+
+
+run()

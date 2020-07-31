@@ -3,8 +3,8 @@ from typing import List
 
 from pymol import cmd
 
-from utils.externals import COMPLEX_PATH, LIGAND_PATH
-from utils.get_pdb_files import get_files
+from src.utils import externals
+from src.utils.get_pdb_files import get_files
 
 
 def read_ligand_code(files: List, structure: str):
@@ -26,13 +26,14 @@ def select_water_residue(structure_files: List, complex_path: str, ligand_files:
 
 
 def run():
-    ligand_structures = get_files(os.path.join(LIGAND_PATH, 'protonated'), 'pdb')
+    ligand_structures = get_files(os.path.join(externals.LIGAND_PATH, 'protonated'), 'pdb')
     files = []
     for file in ligand_structures:
         if 'noconnect' in file:
             files.append(file)
-    complex_structures = get_files(COMPLEX_PATH, 'pdb')
-    select_water_residue(structure_files=complex_structures, complex_path=COMPLEX_PATH, ligand_files=files, dist=5)
+    complex_structures = get_files(externals.COMPLEX_PATH, 'pdb')
+    select_water_residue(structure_files=complex_structures, complex_path=externals.COMPLEX_PATH, ligand_files=files,
+                         dist=5)
 
 
 run()
