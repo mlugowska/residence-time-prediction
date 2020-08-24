@@ -1,10 +1,10 @@
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
-9RZ = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5ODX_9RZ/5ODX_9RZ_noconnect.mol2
+9RZ = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5ODX_9RZ/5ODX_9RZ_HH_noconnect.mol2
 check 9RZ
-loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5ODX_9RZ/5ODX_9RZ.frcmod
-saveoff 9RZ /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5ODX_9RZ/5ODX_9RZ.lib
-saveamberparm 9RZ /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5ODX_9RZ/5ODX_9RZ.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5ODX_9RZ/5ODX_9RZ.inpcrd
-savepdb 9RZ /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5ODX_9RZ/5ODX_9RZ.pdb
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5ODX_9RZ/5ODX_9RZ.frcmod
+saveoff 9RZ /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5ODX_9RZ/5ODX_9RZ.lib
+saveamberparm 9RZ /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5ODX_9RZ/5ODX_9RZ.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5ODX_9RZ/5ODX_9RZ.inpcrd
+savepdb 9RZ /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5ODX_9RZ/5ODX_9RZ.pdb
 charge 9RZ
 quit

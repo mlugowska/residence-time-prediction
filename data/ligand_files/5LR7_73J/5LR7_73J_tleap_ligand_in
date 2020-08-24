@@ -1,10 +1,10 @@
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
-73J = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5LR7_73J/5LR7_73J_noconnect.mol2
+73J = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5LR7_73J/5LR7_73J_HH_noconnect.mol2
 check 73J
-loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5LR7_73J/5LR7_73J.frcmod
-saveoff 73J /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5LR7_73J/5LR7_73J.lib
-saveamberparm 73J /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5LR7_73J/5LR7_73J.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5LR7_73J/5LR7_73J.inpcrd
-savepdb 73J /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5LR7_73J/5LR7_73J.pdb
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5LR7_73J/5LR7_73J.frcmod
+saveoff 73J /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5LR7_73J/5LR7_73J.lib
+saveamberparm 73J /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5LR7_73J/5LR7_73J.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5LR7_73J/5LR7_73J.inpcrd
+savepdb 73J /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5LR7_73J/5LR7_73J.pdb
 charge 73J
 quit

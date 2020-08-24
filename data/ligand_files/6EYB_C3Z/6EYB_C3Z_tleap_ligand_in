@@ -1,10 +1,10 @@
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
-C3Z = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EYB_C3Z/6EYB_C3Z_noconnect.mol2
+C3Z = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6EYB_C3Z/6EYB_C3Z_HH_noconnect.mol2
 check C3Z
-loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EYB_C3Z/6EYB_C3Z.frcmod
-saveoff C3Z /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EYB_C3Z/6EYB_C3Z.lib
-saveamberparm C3Z /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EYB_C3Z/6EYB_C3Z.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EYB_C3Z/6EYB_C3Z.inpcrd
-savepdb C3Z /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EYB_C3Z/6EYB_C3Z.pdb
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6EYB_C3Z/6EYB_C3Z.frcmod
+saveoff C3Z /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6EYB_C3Z/6EYB_C3Z.lib
+saveamberparm C3Z /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6EYB_C3Z/6EYB_C3Z.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6EYB_C3Z/6EYB_C3Z.inpcrd
+savepdb C3Z /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6EYB_C3Z/6EYB_C3Z.pdb
 charge C3Z
 quit

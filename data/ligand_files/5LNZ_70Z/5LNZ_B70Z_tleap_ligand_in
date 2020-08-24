@@ -1,0 +1,10 @@
+source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
+source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
+70Z = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5LNZ_70Z/5LNZ_B70Z_HH_noconnect.mol2
+check 70Z
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5LNZ_70Z/5LNZ_B70Z.frcmod
+saveoff 70Z /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5LNZ_70Z/5LNZ_B70Z.lib
+saveamberparm 70Z /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5LNZ_70Z/5LNZ_B70Z.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5LNZ_70Z/5LNZ_B70Z.inpcrd
+savepdb 70Z /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5LNZ_70Z/5LNZ_B70Z.pdb
+charge 70Z
+quit

@@ -1,10 +1,10 @@
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
-9R8 = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5OCI_9R8/5OCI_9R8_noconnect.mol2
+9R8 = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5OCI_9R8/5OCI_9R8_HH_noconnect.mol2
 check 9R8
-loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5OCI_9R8/5OCI_9R8.frcmod
-saveoff 9R8 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5OCI_9R8/5OCI_9R8.lib
-saveamberparm 9R8 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5OCI_9R8/5OCI_9R8.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5OCI_9R8/5OCI_9R8.inpcrd
-savepdb 9R8 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5OCI_9R8/5OCI_9R8.pdb
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5OCI_9R8/5OCI_9R8.frcmod
+saveoff 9R8 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5OCI_9R8/5OCI_9R8.lib
+saveamberparm 9R8 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5OCI_9R8/5OCI_9R8.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5OCI_9R8/5OCI_9R8.inpcrd
+savepdb 9R8 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5OCI_9R8/5OCI_9R8.pdb
 charge 9R8
 quit

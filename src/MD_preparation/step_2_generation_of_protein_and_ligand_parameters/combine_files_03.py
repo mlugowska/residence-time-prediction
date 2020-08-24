@@ -1,21 +1,14 @@
 import os
-from typing import List, Tuple
+from typing import List
 
 from src.utils import externals
 from src.utils.get_pdb_files import get_files
 
 
-def get_ligand_files() -> Tuple[List[str], List[str]]:
-    ligand_files = []
-    ligand_dirs = []
-    ligand_path = os.path.join(externals.LIGAND_PATH, 'protonated')
-    for root, dirs, filenames in os.walk(ligand_path):
-        for dir in dirs:
-            dir_path = os.path.join(ligand_path, dir)
-            if os.listdir(dir_path):
-                ligand_files.append(f'{dir_path}/{dir}.pdb')
-                ligand_dirs.append(dir_path)
-    return ligand_files, ligand_dirs
+def get_ligand_files() -> [List[str]]:
+    files = get_files(externals.LIGAND_PATH, 'pdb')
+    min_length = min([len(x) for x in files])
+    return list(filter(lambda x: len(x) < min_length + 2, files)), min_length
 
 
 def get_protein_files() -> List[str]:
@@ -26,11 +19,14 @@ def get_water_files() -> List[str]:
     return get_files(os.path.join(externals.COMPLEX_PATH, 'crystallographic_hoh_hh'), 'pdb')
 
 
-def get_pdbs(ligand_files) -> List[str]:
+def get_pdbs(ligand_files: List[str], length: int) -> List[str]:
     pdbs = []
     for file in ligand_files:
-        pdbs.append(file[-12:-8])
-    return pdbs
+        if len(file) == length:
+            pdbs.append(file[-12:-8])
+        else:
+            pdbs.append(file[-13:-9])
+    return list(set(pdbs))
 
 
 def add_to_final_file(filename: str, output_filename: str, keyword: str, mode: str) -> None:
@@ -69,21 +65,23 @@ def combine() -> None:
     '''
 
     protein_files = get_protein_files()
-    ligand_files, _ = get_ligand_files()
+    ligand_files, min_length = get_ligand_files()
     water_files = get_water_files()
 
-    for pdb_ in get_pdbs(ligand_files):
-        protein = [file_ for file_ in protein_files if pdb_ in file_][0]
-        ligand = [file_ for file_ in ligand_files if pdb_ in file_][0]
-        water = [file_ for file_ in water_files if pdb_ in file_][0]
-
-        output_filename = os.path.join(externals.COMPLEX_PATH, f'{protein[-16:-12]}_final.pdb')
-
-        add_protein(protein, output_filename)
-        add_ter_line(output_filename)
-        add_ligand(ligand, output_filename)
-        add_ter_line(output_filename)
-        add_water(water, output_filename)
+    for pdb_ in get_pdbs(ligand_files, min_length):
+        ligands = [file_ for file_ in ligand_files if pdb_ in file_]
+        for ligand in ligands:
+            protein = [file_ for file_ in protein_files if pdb_ in file_][0]
+            water = [file_ for file_ in water_files if pdb_ in file_][0]
+            if len(ligands) == 1:
+                output_filename = os.path.join(externals.COMPLEX_PATH, f'{pdb_}', f'{ligand[-12:-4]}_final.pdb')
+            else:
+                output_filename = os.path.join(externals.COMPLEX_PATH, f'{pdb_}', f'{ligand[-13:-4]}_final.pdb')
+            add_protein(protein, output_filename)
+            add_ter_line(output_filename)
+            add_ligand(ligand, output_filename)
+            add_ter_line(output_filename)
+            add_water(water, output_filename)
 
 
 combine()

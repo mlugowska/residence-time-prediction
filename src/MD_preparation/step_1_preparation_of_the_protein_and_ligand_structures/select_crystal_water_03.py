@@ -10,8 +10,8 @@ from src.utils.get_pdb_files import get_files
 def read_ligand_code(files: List, structure: str):
     for file in files:
         if structure[-8:-4] in file:
-            print(file[-17:-14])
-            return file[-17:-14]
+            print(file[-20:-17])
+            return file[-20:-17]
 
 
 def select_water_residue(structure_files: List, complex_path: str, ligand_files: List, dist=None):
@@ -26,14 +26,10 @@ def select_water_residue(structure_files: List, complex_path: str, ligand_files:
 
 
 def run():
-    ligand_structures = get_files(os.path.join(externals.LIGAND_PATH, 'protonated'), 'pdb')
-    files = []
-    for file in ligand_structures:
-        if 'noconnect' in file:
-            files.append(file)
+    ligand_structures = get_files(externals.LIGAND_PATH, 'HH_noconnect.pdb')
     complex_structures = get_files(externals.COMPLEX_PATH, 'pdb')
-    select_water_residue(structure_files=complex_structures, complex_path=externals.COMPLEX_PATH, ligand_files=files,
-                         dist=5)
+    select_water_residue(structure_files=complex_structures, complex_path=externals.COMPLEX_PATH,
+                         ligand_files=ligand_structures, dist=5)
 
 
 run()

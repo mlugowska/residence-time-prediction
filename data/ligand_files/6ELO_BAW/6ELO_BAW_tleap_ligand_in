@@ -1,10 +1,10 @@
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
-BAW = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6ELO_BAW/6ELO_BAW_noconnect.mol2
+BAW = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6ELO_BAW/6ELO_BAW_HH_noconnect.mol2
 check BAW
-loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6ELO_BAW/6ELO_BAW.frcmod
-saveoff BAW /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6ELO_BAW/6ELO_BAW.lib
-saveamberparm BAW /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6ELO_BAW/6ELO_BAW.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6ELO_BAW/6ELO_BAW.inpcrd
-savepdb BAW /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6ELO_BAW/6ELO_BAW.pdb
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6ELO_BAW/6ELO_BAW.frcmod
+saveoff BAW /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6ELO_BAW/6ELO_BAW.lib
+saveamberparm BAW /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6ELO_BAW/6ELO_BAW.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6ELO_BAW/6ELO_BAW.inpcrd
+savepdb BAW /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6ELO_BAW/6ELO_BAW.pdb
 charge BAW
 quit

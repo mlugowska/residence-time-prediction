@@ -1,0 +1,49 @@
+HETATM    1 CL14 TCL A1302       7.460  16.103   9.619  1.00 19.02          CL  
+HETATM    2 CL15 TCL A1302      17.677  15.805  10.002  1.00 26.47          CL  
+HETATM    3 CL16 TCL A1302      14.787  13.689  14.044  1.00 25.77          CL  
+HETATM    4  C1  TCL A1302       9.533  14.473  10.219  1.00 18.07           C  
+HETATM    5  C2  TCL A1302       8.914  15.690  10.496  1.00 16.92           C  
+HETATM    6  C3  TCL A1302       9.412  16.576  11.438  1.00 16.60           C  
+HETATM    7  C4  TCL A1302      10.542  16.158  12.166  1.00 17.69           C  
+HETATM    8  C5  TCL A1302      11.218  14.993  11.884  1.00 19.44           C  
+HETATM    9  C6  TCL A1302      10.718  14.164  10.903  1.00 18.58           C  
+HETATM   10  O7  TCL A1302      12.401  14.639  12.490  1.00 18.77           O  
+HETATM   11  C8  TCL A1302      13.661  14.870  11.901  1.00 17.66           C  
+HETATM   12  C9  TCL A1302      14.828  14.483  12.492  1.00 21.86           C  
+HETATM   13  C10 TCL A1302      16.076  14.760  11.931  1.00 21.31           C  
+HETATM   14  C11 TCL A1302      16.113  15.447  10.706  1.00 22.96           C  
+HETATM   15  C12 TCL A1302      14.976  15.865  10.072  1.00 22.42           C  
+HETATM   16  C13 TCL A1302      13.749  15.565  10.710  1.00 19.81           C  
+HETATM   17  O17 TCL A1302      11.375  12.959  10.622  1.00 19.82           O  
+HETATM   18  H01 TCL A1302       9.109  13.781   9.492  1.00 18.07           H  
+HETATM   19  H02 TCL A1302       8.951  17.549  11.607  1.00 16.60           H  
+HETATM   20  H03 TCL A1302      10.896  16.782  12.986  1.00 17.69           H  
+HETATM   21  H04 TCL A1302      16.995  14.452  12.429  1.00 21.31           H  
+HETATM   22  H05 TCL A1302      15.013  16.402   9.124  1.00 22.42           H  
+HETATM   23  H06 TCL A1302      12.825  15.900  10.237  1.00 19.81           H  
+HETATM   24  H07 TCL A1302      11.505  12.878   9.674  1.00 19.82           H  
+CONECT    1    5
+CONECT    2   14
+CONECT    3   12
+CONECT    4    5    9   18
+CONECT    5    4    1    6
+CONECT    6    5   19    7
+CONECT    7    6   20    8
+CONECT    8    7   10    9
+CONECT    9    4    8   17
+CONECT   10    8   11
+CONECT   11   10   16   12
+CONECT   12    3   11   13
+CONECT   13   12   21   14
+CONECT   14    2   13   15
+CONECT   15   14   16   22
+CONECT   16   11   15   23
+CONECT   17    9   24
+CONECT   18    4
+CONECT   19    6
+CONECT   20    7
+CONECT   21   13
+CONECT   22   15
+CONECT   23   16
+CONECT   24   17
+END

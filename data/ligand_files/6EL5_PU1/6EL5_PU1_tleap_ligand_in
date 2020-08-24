@@ -1,10 +1,10 @@
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
-PU1 = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EL5_PU1/6EL5_PU1_noconnect.mol2
+PU1 = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6EL5_PU1/6EL5_PU1_HH_noconnect.mol2
 check PU1
-loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EL5_PU1/6EL5_PU1.frcmod
-saveoff PU1 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EL5_PU1/6EL5_PU1.lib
-saveamberparm PU1 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EL5_PU1/6EL5_PU1.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EL5_PU1/6EL5_PU1.inpcrd
-savepdb PU1 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/6EL5_PU1/6EL5_PU1.pdb
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6EL5_PU1/6EL5_PU1.frcmod
+saveoff PU1 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6EL5_PU1/6EL5_PU1.lib
+saveamberparm PU1 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6EL5_PU1/6EL5_PU1.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6EL5_PU1/6EL5_PU1.inpcrd
+savepdb PU1 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/6EL5_PU1/6EL5_PU1.pdb
 charge PU1
 quit

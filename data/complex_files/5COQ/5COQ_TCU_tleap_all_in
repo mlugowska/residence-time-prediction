@@ -1,0 +1,14 @@
+source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
+source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
+loadamberparams /Users/mlugowska/PhD/tools/amber20/dat/leap/parm/frcmod.ionsjc_tip3p
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5COQ_TCU/5COQ_TCU.frcmod
+loadoff /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5COQ_TCU/5COQ_TCU.lib
+complex  = loadpdb /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/5COQ/5COQ_TCU_final.pdb
+solvateBox complex TIP3PBOX 10
+charge complex
+addions complex Na+ 0
+addions complex Cl- 0
+charge complex
+saveamberparm complex /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/5COQ/5COQ_TCU_tip3_ions.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/5COQ/5COQ_TCU_tip3_ions.inpcrd
+savepdb complex /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/5COQ/5COQ_TCU_tip3_ions.pdb
+quit

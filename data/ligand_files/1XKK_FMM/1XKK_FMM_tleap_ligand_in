@@ -1,10 +1,10 @@
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
-FMM = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/1XKK_FMM/1XKK_FMM_noconnect.mol2
+FMM = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/1XKK_FMM/1XKK_FMM_HH_noconnect.mol2
 check FMM
-loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/1XKK_FMM/1XKK_FMM.frcmod
-saveoff FMM /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/1XKK_FMM/1XKK_FMM.lib
-saveamberparm FMM /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/1XKK_FMM/1XKK_FMM.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/1XKK_FMM/1XKK_FMM.inpcrd
-savepdb FMM /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/1XKK_FMM/1XKK_FMM.pdb
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/1XKK_FMM/1XKK_FMM.frcmod
+saveoff FMM /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/1XKK_FMM/1XKK_FMM.lib
+saveamberparm FMM /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/1XKK_FMM/1XKK_FMM.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/1XKK_FMM/1XKK_FMM.inpcrd
+savepdb FMM /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/1XKK_FMM/1XKK_FMM.pdb
 charge FMM
 quit

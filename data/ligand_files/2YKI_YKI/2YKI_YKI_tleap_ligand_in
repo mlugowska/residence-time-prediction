@@ -1,10 +1,10 @@
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
-YKI = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/2YKI_YKI/2YKI_YKI_noconnect.mol2
+YKI = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/2YKI_YKI/2YKI_YKI_HH_noconnect.mol2
 check YKI
-loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/2YKI_YKI/2YKI_YKI.frcmod
-saveoff YKI /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/2YKI_YKI/2YKI_YKI.lib
-saveamberparm YKI /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/2YKI_YKI/2YKI_YKI.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/2YKI_YKI/2YKI_YKI.inpcrd
-savepdb YKI /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/2YKI_YKI/2YKI_YKI.pdb
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/2YKI_YKI/2YKI_YKI.frcmod
+saveoff YKI /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/2YKI_YKI/2YKI_YKI.lib
+saveamberparm YKI /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/2YKI_YKI/2YKI_YKI.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/2YKI_YKI/2YKI_YKI.inpcrd
+savepdb YKI /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/2YKI_YKI/2YKI_YKI.pdb
 charge YKI
 quit

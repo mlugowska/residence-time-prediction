@@ -1,10 +1,10 @@
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
-0HK = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/4DAJ_0HK/4DAJ_0HK_noconnect.mol2
+0HK = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/4DAJ_0HK/4DAJ_0HK_HH_noconnect.mol2
 check 0HK
-loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/4DAJ_0HK/4DAJ_0HK.frcmod
-saveoff 0HK /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/4DAJ_0HK/4DAJ_0HK.lib
-saveamberparm 0HK /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/4DAJ_0HK/4DAJ_0HK.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/4DAJ_0HK/4DAJ_0HK.inpcrd
-savepdb 0HK /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/4DAJ_0HK/4DAJ_0HK.pdb
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/4DAJ_0HK/4DAJ_0HK.frcmod
+saveoff 0HK /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/4DAJ_0HK/4DAJ_0HK.lib
+saveamberparm 0HK /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/4DAJ_0HK/4DAJ_0HK.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/4DAJ_0HK/4DAJ_0HK.inpcrd
+savepdb 0HK /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/4DAJ_0HK/4DAJ_0HK.pdb
 charge 0HK
 quit

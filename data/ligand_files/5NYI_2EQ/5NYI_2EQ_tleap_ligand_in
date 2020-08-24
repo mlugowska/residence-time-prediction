@@ -1,10 +1,10 @@
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
-2EQ = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5NYI_2EQ/5NYI_2EQ_noconnect.mol2
+2EQ = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5NYI_2EQ/5NYI_2EQ_HH_noconnect.mol2
 check 2EQ
-loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5NYI_2EQ/5NYI_2EQ.frcmod
-saveoff 2EQ /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5NYI_2EQ/5NYI_2EQ.lib
-saveamberparm 2EQ /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5NYI_2EQ/5NYI_2EQ.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5NYI_2EQ/5NYI_2EQ.inpcrd
-savepdb 2EQ /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5NYI_2EQ/5NYI_2EQ.pdb
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5NYI_2EQ/5NYI_2EQ.frcmod
+saveoff 2EQ /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5NYI_2EQ/5NYI_2EQ.lib
+saveamberparm 2EQ /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5NYI_2EQ/5NYI_2EQ.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5NYI_2EQ/5NYI_2EQ.inpcrd
+savepdb 2EQ /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5NYI_2EQ/5NYI_2EQ.pdb
 charge 2EQ
 quit

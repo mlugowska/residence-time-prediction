@@ -1,3 +1,8 @@
+REMARK 800 SITE_DESCRIPTION: binding site for residue 70Z A 301                 
+HET    70Z  A 301      68                                                       
+HETNAM     70Z ~{N}3-BUTYL-~{N}3,~{N}5-DIMETHYL-~{N}5-(4-MORPHOLIN-4-           
+HETNAM   2 70Z  YLPHENYL)-6-OXIDANYL-2~{H}-INDAZOLE-3,5-DICARBOXAMIDE           
+FORMUL   2  70Z    C25 H31 N5 O4                                                
 HETATM 1628  C1 A70Z A 301       0.734  10.448  22.525  0.50 15.89           C  
 HETATM 1629  C1 B70Z A 301       0.735  10.456  22.530  0.50 18.90           C  
 HETATM 1630  C7 A70Z A 301       1.855  11.371  24.539  0.50 16.12           C  
@@ -65,4 +70,4 @@ HETATM 1691  O27B70Z A 301      -4.632   5.640  28.142  0.50 22.59           O
 HETATM 1692  C28A70Z A 301      -5.264   5.722  26.793  0.50 22.82           C  
 HETATM 1693  C28B70Z A 301      -3.267   5.418  28.306  0.50 26.16           C  
 HETATM 1694  C29A70Z A 301      -4.302   6.012  25.652  0.50 19.60           C  
-HETATM 1695  C29B70Z A 301      -2.543   6.472  27.484  0.50 24.88           C 
+HETATM 1695  C29B70Z A 301      -2.543   6.472  27.484  0.50 24.88           C  

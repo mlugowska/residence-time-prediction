@@ -1,10 +1,10 @@
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/oldff/leaprc.ff14SB
 source /Users/mlugowska/PhD/tools/amber20/dat/leap/cmd/leaprc.gaff
-XTW = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5UGT_XTW/5UGT_XTW_noconnect.mol2
+XTW = loadmol2 /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5UGT_XTW/5UGT_XTW_HH_noconnect.mol2
 check XTW
-loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5UGT_XTW/5UGT_XTW.frcmod
-saveoff XTW /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5UGT_XTW/5UGT_XTW.lib
-saveamberparm XTW /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5UGT_XTW/5UGT_XTW.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5UGT_XTW/5UGT_XTW.inpcrd
-savepdb XTW /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/protonated/5UGT_XTW/5UGT_XTW.pdb
+loadamberparams /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5UGT_XTW/5UGT_XTW.frcmod
+saveoff XTW /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5UGT_XTW/5UGT_XTW.lib
+saveamberparm XTW /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5UGT_XTW/5UGT_XTW.prmtop /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5UGT_XTW/5UGT_XTW.inpcrd
+savepdb XTW /Users/mlugowska/PhD/residence-time-prediction/data/ligand_files/5UGT_XTW/5UGT_XTW.pdb
 charge XTW
 quit
