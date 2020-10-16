@@ -1,0 +1,213 @@
+
+          -------------------------------------------------------
+          Amber 20 SANDER                              2020
+          -------------------------------------------------------
+
+| Run on 09/04/2020 at 11:14:48
+
+|   Executable path: sander
+| Working directory: /Users/mlugowska/PhD/residence-time-prediction
+|          Hostname: Unknown
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+| MDOUT: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+|INPCRD: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+|  PARM: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+|RESTRT: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+|  REFC: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: mdcrd                                                                 
+|MDINFO: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+
+ Here is the input file:
+
+                                                                               
+# NVT Heating with restrained heavy atoms 50 kcal/mol*A^2                      
+&cntrl                                                                         
+imin=0, ntx=1, irest=0, ntrx=1, ntxo=1,                                        
+ntpr=100, ntwx=1000, ntwv=1000, ntwe=1000,                                     
+ntc=2, ntf=2, ntb=1, dielc=1.0, cut=10.0,                                      
+nsnb=100, igb=0,                                                               
+ntr=1, restraint_wt=50.0, restraintmask=':1-207 & !@H= & !@Na= & !@Cl=',       
+nstlim=25000,                                                                  
+t=0.0, dt=0.002,                                                               
+ntt=3, gamma_ln=1.0, tempi=10.0, temp0=300.0,                                  
+vlimit=15,                                                                     
+ntp=0,                                                                         
+tol=0.00000001,                                                                
+ /'                                                                            
+                                                                               
+                                                                               
+# NVT Heating with restrained heavy atoms 50 kcal/mol*A^2                      
+&cntrl                                                                         
+imin=0, ntx=1, irest=0, ntrx=1, ntxo=1,                                        
+ntpr=100, ntwx=1000, ntwv=1000, ntwe=1000,                                     
+ntc=2, ntf=2, ntb=1, dielc=1.0, cut=10.0,                                      
+nsnb=100, igb=0,                                                               
+ntr=1, restraint_wt=50.0, restraintmask=':1-207 & !@H= & !@Na= & !@Cl=',       
+nstlim=25000,                                                                  
+t=0.0, dt=0.002,                                                               
+ntt=3, gamma_ln=1.0, tempi=10.0, temp0=300.0,                                  
+vlimit=15,                                                                     
+ntp=0,                                                                         
+tol=0.00000001,                                                                
+ /'                                                                            
+                                                                               
+                                                                               
+# NVT Heating with restrained heavy atoms 50 kcal/mol*A^2                      
+&cntrl                                                                         
+imin=0, ntx=1, irest=0, ntrx=1, ntxo=1,                                        
+ntpr=100, ntwx=1000, ntwv=1000, ntwe=1000,                                     
+ntc=2, ntf=2, ntb=1, dielc=1.0, cut=10.0,                                      
+nsnb=100, igb=0,                                                               
+ntr=1, restraint_wt=50.0, restraintmask=':1-207 & !@H= & !@Na= & !@Cl=',       
+nstlim=25000,                                                                  
+t=0.0, dt=0.002,                                                               
+ntt=3, gamma_ln=1.0, tempi=10.0, temp0=300.0,                                  
+vlimit=15,                                                                     
+ntp=0,                                                                         
+tol=0.00000001,                                                                
+ /'                                                                            
+                                                                               
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags:                                                                        
+ getting new box info from bottom of inpcrd
+|  INFO: Old style inpcrd file read
+
+| peek_ewald_inpcrd: Box info found
+|Largest sphere to fit in unit cell has radius =    34.628
+| New format PARM file being parsed.
+| Version =    1.000 Date = 08/24/20 Time = 13:50:20
+ NATOM  =   26974 NTYPES =      17 NBONH =   25307 MBONA  =    1691
+ NTHETH =    3750 MTHETA =    2284 NPHIH =    7551 MPHIA  =    7290
+ NHPARM =       0 NPARM  =       0 NNB   =   49797 NRES   =    8101
+ NBONA  =    1691 NTHETA =    2284 NPHIA =    7290 NUMBND =      86
+ NUMANG =     187 NPTRA  =     187 NATYP =      49 NPHB   =       1
+ IFBOX  =       1 NMXRS  =      50 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real             2524711
+|     Hollerith          89025
+|     Integer          1345651
+|     Max Pairs       15537024
+|     nblistReal        323688
+|     nblist Int       1103838
+|       Total            92860 kbytes
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+
+     BOX TYPE: RECTILINEAR
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       0, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       1, ntpr    =     100, ntrx    =       1, ntwr    =   25000
+     iwrap   =       0, ntwx    =    1000, ntwv    =    1000, ntwe    =    1000
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       2, ntb     =       1, igb     =       0, nsnb    =     100
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =  10.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       1
+     restraint_wt =  50.00000
+
+Molecular dynamics:
+     nstlim  =     25000, nscm    =         0, nrespa  =         1
+     t       =   0.00000, dt      =   0.00200, vlimit  =  15.00000
+
+Langevin dynamics temperature regulation:
+     ig      =   71277
+     temp0   = 300.00000, tempi   =  10.00000, gamma_ln=   1.00000
+
+SHAKE:
+     ntc     =       2, jfastw  =       0
+     tol     =   0.00000
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       1, eedmeth =       1, netfrc  =       1
+     Box X =   69.256   Box Y =   70.948   Box Z =   70.701
+     Alpha =   90.000   Beta  =   90.000   Gamma =   90.000
+     NFFT1 =   72       NFFT2 =   72       NFFT3 =   72
+     Cutoff=   10.000   Tol   =0.100E-04
+     Ewald Coefficient =  0.27511
+     Interpolation order =    4
+
+    LOADING THE CONSTRAINED ATOMS AS GROUPS
+
+
+   5.  REFERENCE ATOM COORDINATES
+
+  defa
+     Mask :1-207 & !@H= & !@Na= & !@Cl=; matches  1628 atoms
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+defa                                                                            
+ begin time read from input coords =     0.000 ps
+
+ Number of triangulated 3-point waters found:     7886
+
+     Sum of charges from parm topology file =   0.00199988
+     Forcing neutrality...
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+|  # of SOLUTE  degrees of freedom (RNDFP):   55615.
+|  # of SOLVENT degrees of freedom (RNDFS):       0.
+|  NDFMIN =   55615.     NUM_NOSHAKE =      0     CORRECTED RNDFP =   55615.
+|  TOTAL # of degrees of freedom (RNDF) =   55615.
+ ---------------------------------------------------
+ APPROXIMATING switch and d/dx switch using CUBIC SPLINE INTERPOLATION
+ using   5000.0 points per unit in tabled values
+ TESTING RELATIVE ERROR over r ranging from 0.0 to cutoff
+| CHECK switch(x): max rel err =   0.2738E-14   at   2.422500
+| CHECK d/dx switch(x): max rel err =   0.8314E-11   at   2.736960
+ ---------------------------------------------------
+| Local SIZE OF NONBOND LIST =    8026416
+| TOTAL SIZE OF NONBOND LIST =    8026416
+
+ NSTEP =        0   TIME(PS) =       0.000  TEMP(K) =    14.54  PRESS =     0.0
+ Etot   =   -113343.2396  EKtot   =       803.5420  EPtot      =   -114146.7815
+ BOND   =       106.4495  ANGLE   =       412.0316  DIHED      =      2349.4446
+ 1-4 NB =       683.9812  1-4 EEL =      9391.8381  VDWAALS    =     20721.8827
+ EELEC  =   -147812.4093  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ Ewald error estimate:   0.1350E-03
+ ------------------------------------------------------------------------------
+

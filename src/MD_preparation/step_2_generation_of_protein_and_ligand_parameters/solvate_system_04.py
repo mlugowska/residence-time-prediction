@@ -1,6 +1,4 @@
-import os
 from subprocess import call
-from typing import List, Union
 
 from src.MD_preparation.step_2_generation_of_protein_and_ligand_parameters.combine_files_03 import get_ligand_files, \
     get_pdbs

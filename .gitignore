@@ -2,3 +2,7 @@
 .DS_Store
 rtp-venv/
 *__pycache__*
+
+mdcrd
+mden
+mdvel

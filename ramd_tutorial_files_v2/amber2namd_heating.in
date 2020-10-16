@@ -1,6 +1,4 @@
-
-
-# AMBER parameters- force field and input coordinates 
+# AMBER parameters- force field and input coordinates
 parmfile ./ref.prmtop
 ambercoor ./ref-equil-NPT.crd
 set temperature  300

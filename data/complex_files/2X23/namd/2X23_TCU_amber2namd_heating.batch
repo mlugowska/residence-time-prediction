@@ -1,0 +1,11 @@
+#!/bin/bash -l
+#SBATCH -J 2X23_TCU_amber2namd_heating
+#SBATCH -N 1
+#SBATCH --ntasks-per-node 12
+#SBATCH --mem 5000
+#SBATCH --time=200:00:00
+#SBATCH --account=GR80-32
+#SBATCH --partition=topola
+#SBATCH --output="2X23_TCU_amber2namd_heating_slurm.out"
+module load apps/namd/2.13
+mpirun namd2 2X23_TCU_amber2namd_heating.in > 2X23_TCU_amber2namd_heating.out

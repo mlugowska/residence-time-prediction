@@ -6,15 +6,16 @@ import seaborn as sns
 
 from src.utils.externals import BINANA_INTERACTIONS_PATH
 
-df = pd.read_csv(os.path.join(BINANA_INTERACTIONS_PATH, 'interactions.csv'), index_col=0)
+df = pd.read_csv(os.path.join(BINANA_INTERACTIONS_PATH, 'binana', 'interactions.csv'), index_col=0)
 df.set_index('PDB ID', inplace=True)
 kendall = df.corr(method='kendall')
 spearman = df.corr(method='spearman')
 pearson = df.corr(method='pearson')
 
 f, ax = plt.subplots(figsize=(18, 18))
-sns.heatmap(pearson, annot=True, linewidths=.5, fmt='.1f', ax=ax)
-plt.show()
+sns.heatmap(kendall, annot=True, linewidths=.5, fmt='.1f', ax=ax)
+# plt.show()
+plt.savefig(os.path.join(BINANA_INTERACTIONS_PATH, 'binana', 'corr_kendall.png'))
 
-df_t = df.transpose()
-df_t.to_csv(os.path.join(BINANA_INTERACTIONS_PATH, 'interactions_transposed.csv'))
+# df_t = df.transpose()
+# df_t.to_csv(os.path.join(BINANA_INTERACTIONS_PATH, 'interactions_transposed.csv'))

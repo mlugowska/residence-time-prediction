@@ -1,0 +1,183 @@
+
+          -------------------------------------------------------
+          Amber 20 SANDER                              2020
+          -------------------------------------------------------
+
+| Run on 09/04/2020 at 11:17:45
+
+|   Executable path: sander
+| Working directory: /Users/mlugowska/PhD/residence-time-prediction
+|          Hostname: Unknown
+  [-O]verwriting output
+
+File Assignments:
+|  MDIN: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+| MDOUT: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+|INPCRD: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+|  PARM: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+|RESTRT: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+|  REFC: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+| MDVEL: mdvel                                                                 
+| MDFRC: mdfrc                                                                 
+|  MDEN: mden                                                                  
+| MDCRD: mdcrd                                                                 
+|MDINFO: /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2YKJ
+|  MTMD: mtmd                                                                  
+|INPDIP: inpdip                                                                
+|RSTDIP: rstdip                                                                
+|INPTRA: inptraj                                                               
+
+
+ Here is the input file:
+
+                                                                               
+# Minimization performed for relaxing the solute : restraint_wt=500            
+&cntrl                                                                         
+imin=1, ntx=1, irest=0, ntrx=1, ntxo=1,                                        
+ntpr=25, ntwr=500, ntwx=0, ntwv=0, ntwe=0,ntf=1, ntb=1, dielc=1.0, cut=10.0,   
+nsnb=25, igb=0,                                                                
+ntr=1, restraint_wt=500, restraintmask='(:1-207 & !@H= & !@Na= & !@Cl=)',      
+maxcyc=1500, ntmin=1, ncyc=500, dx0=0.01, drms=0.0001,                         
+ntc=1,                                                                         
+/                                                                              
+                                                                               
+                                                                               
+# Minimization performed for relaxing the solute : restraint_wt=500            
+&cntrl                                                                         
+imin=1, ntx=1, irest=0, ntrx=1, ntxo=1,                                        
+ntpr=25, ntwr=500, ntwx=0, ntwv=0, ntwe=0,ntf=1, ntb=1, dielc=1.0, cut=10.0,   
+nsnb=25, igb=0,                                                                
+ntr=1, restraint_wt=500, restraintmask='(:1-207 & !@H= & !@Na= & !@Cl=)',      
+maxcyc=1500, ntmin=1, ncyc=500, dx0=0.01, drms=0.0001,                         
+ntc=1,                                                                         
+/                                                                              
+                                                                               
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+| Flags:                                                                        
+ getting new box info from bottom of inpcrd
+|  INFO: Old style inpcrd file read
+
+| peek_ewald_inpcrd: Box info found
+|Largest sphere to fit in unit cell has radius =    34.628
+| New format PARM file being parsed.
+| Version =    1.000 Date = 08/24/20 Time = 13:50:22
+ NATOM  =   26974 NTYPES =      17 NBONH =   25307 MBONA  =    1691
+ NTHETH =    3750 MTHETA =    2284 NPHIH =    7551 MPHIA  =    7290
+ NHPARM =       0 NPARM  =       0 NNB   =   49797 NRES   =    8101
+ NBONA  =    1691 NTHETA =    2284 NPHIA =    7290 NUMBND =      86
+ NUMANG =     187 NPTRA  =     187 NATYP =      49 NPHB   =       1
+ IFBOX  =       1 NMXRS  =      50 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+
+|     Memory Use     Allocated
+|     Real             3048399
+|     Hollerith          89025
+|     Integer          1345651
+|     Max Pairs       15537024
+|     nblistReal        323688
+|     nblist Int       1103838
+|       Total            96952 kbytes
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| Duplicated    0 dihedrals
+| Duplicated    0 dihedrals
+
+     BOX TYPE: RECTILINEAR
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       1, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       1, ntpr    =      25, ntrx    =       1, ntwr    =     500
+     iwrap   =       0, ntwx    =       0, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       1, ntb     =       1, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =  10.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       1
+     restraint_wt = 500.00000
+
+Energy minimization:
+     maxcyc  =    1500, ncyc    =     500, ntmin   =       1
+     dx0     =   0.01000, drms    =   0.00010
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       1, eedmeth =       1, netfrc  =       0
+     Box X =   69.256   Box Y =   70.948   Box Z =   70.701
+     Alpha =   90.000   Beta  =   90.000   Gamma =   90.000
+     NFFT1 =   72       NFFT2 =   72       NFFT3 =   72
+     Cutoff=   10.000   Tol   =0.100E-04
+     Ewald Coefficient =  0.27511
+     Interpolation order =    4
+
+    LOADING THE CONSTRAINED ATOMS AS GROUPS
+
+
+   5.  REFERENCE ATOM COORDINATES
+
+  defa
+     Mask (:1-207 & !@H= & !@Na= & !@Cl=); matches  1628 atoms
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+ begin time read from input coords =     0.000 ps
+
+ Number of triangulated 3-point waters found:     7886
+
+     Sum of charges from parm topology file =   0.00199988
+     Forcing neutrality...
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+ ---------------------------------------------------
+ APPROXIMATING switch and d/dx switch using CUBIC SPLINE INTERPOLATION
+ using   5000.0 points per unit in tabled values
+ TESTING RELATIVE ERROR over r ranging from 0.0 to cutoff
+| CHECK switch(x): max rel err =   0.2738E-14   at   2.422500
+| CHECK d/dx switch(x): max rel err =   0.8314E-11   at   2.736960
+ ---------------------------------------------------
+| Local SIZE OF NONBOND LIST =    7774956
+| TOTAL SIZE OF NONBOND LIST =    7774956
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+      1       1.0921E+15     3.8599E+14     5.0152E+16     O        3341
+
+ BOND    =      223.9005  ANGLE   =      403.8723  DIHED      =     2296.4277
+ VDWAALS = *************  EEL     =   -89221.1831  HBOND      =        0.0000
+ 1-4 VDW =      983.3925  1-4 EEL =     9805.5142  RESTRAINT  =        0.0000
+
+
+   NSTEP       ENERGY          RMS            GMAX         NAME    NUMBER
+     25      -6.4954E+04     4.4185E+01     4.3641E+03     O        3341
+
+ BOND    =     1020.4296  ANGLE   =      401.7472  DIHED      =     2296.3399
+ VDWAALS =    11452.7420  EEL     =   -90912.5826  HBOND      =        0.0000
+ 1-4 VDW =      983.2117  1-4 EEL =     9803.6359  RESTRAINT  =        0.2369
+ EAMBER  =   -64954.4762
