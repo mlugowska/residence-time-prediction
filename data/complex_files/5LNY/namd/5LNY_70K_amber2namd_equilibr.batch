@@ -1,11 +1,10 @@
 #!/bin/bash -l
 #SBATCH -J 5LNY_70K_amber2namd_equilibr
-#SBATCH -N 1
-#SBATCH --ntasks-per-node 12
-#SBATCH --mem 5000
-#SBATCH --time=200:00:00
+#SBATCH --nodes=6
+#SBATCH --ntasks-per-node=14
+#SBATCH --cpus-per-task=2
 #SBATCH --account=GR80-32
 #SBATCH --partition=topola
 #SBATCH --output="5LNY_70K_amber2namd_equilibr_slurm.out"
 module load apps/namd/2.13
-mpirun namd2 5LNY_70K_amber2namd_equilibr.in > 5LNY_70K_amber2namd_equilibr.out
+srun namd2 ++ppn 2 5LNY_70K_amber2namd_equilibr.in > 5LNY_70K_amber2namd_equilibr.out

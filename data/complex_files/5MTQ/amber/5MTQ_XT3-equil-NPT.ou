@@ -3,7 +3,7 @@
           Amber 20 SANDER                              2020
           -------------------------------------------------------
 
-| Run on 09/22/2020 at 11:07:57
+| Run on 10/20/2020 at 06:47:07
 
 |   Executable path: sander
 | Working directory: /Users/mlugowska/PhD/residence-time-prediction
@@ -30,6 +30,21 @@ File Assignments:
 
  Here is the input file:
 
+                                                                               
+# NPT equilibration with restrained heavy atoms 50 kcal/mol*A^2                
+&cntrl                                                                         
+imin=0, ntx=5, irest=1, ntrx=1, ntxo=1,                                        
+ntpr=100, ntwx=1000, ntwv=1000, ntwe=1000,                                     
+ntc=2, ntf=2, ntb=2, dielc=1.0, cut=10.0,                                      
+nsnb=100, igb=0,                                                               
+nstlim=10000,                                                                  
+t=0.0, dt=0.002,                                                               
+ntt=3, gamma_ln=1.0, tempi=300.0, temp0=300.0,                                 
+vlimit=15,                                                                     
+ntp=1, taup=1.0, pres0=1.0, comp=44.6,                                         
+tol=0.00000001,                                                                
+/                                                                              
+                                                                               
                                                                                
 # NPT equilibration with restrained heavy atoms 50 kcal/mol*A^2                
 &cntrl                                                                         
@@ -1297,33 +1312,33 @@ default_name
    5.  TIMINGS
 --------------------------------------------------------------------------------
 
-|                Build the list          2088.21 (99.85% of List )
-|                Other                      3.13 ( 0.15% of List )
-|             List time               2091.33 (16.99% of Nonbo)
-|                   Short_ene time          9871.02 (99.69% of Direc)
-|                   Other                     30.65 ( 0.31% of Direc)
-|                Direct Ewald time       9901.67 (96.91% of Ewald)
-|                Adjust Ewald time         15.73 ( 0.15% of Ewald)
-|                   Fill Bspline coeffs       14.35 ( 4.85% of Recip)
-|                   Fill charge grid          42.49 (14.36% of Recip)
-|                   Scalar sum                47.30 (15.98% of Recip)
-|                   Grad sum                  91.80 (31.02% of Recip)
-|                   FFT time                  99.97 (33.78% of Recip)
+|                Build the list          1063.46 (99.69% of List )
+|                Other                      3.29 ( 0.31% of List )
+|             List time               1066.75 (12.65% of Nonbo)
+|                   Short_ene time          7003.62 (99.55% of Direc)
+|                   Other                     31.42 ( 0.45% of Direc)
+|                Direct Ewald time       7035.05 (95.48% of Ewald)
+|                Adjust Ewald time         15.80 ( 0.21% of Ewald)
+|                   Fill Bspline coeffs       14.56 ( 4.66% of Recip)
+|                   Fill charge grid          45.57 (14.58% of Recip)
+|                   Scalar sum                47.24 (15.12% of Recip)
+|                   Grad sum                  99.98 (31.99% of Recip)
+|                   FFT time                 105.14 (33.64% of Recip)
 |                   Other                      0.03 ( 0.01% of Recip)
-|                Recip Ewald time         295.93 ( 2.90% of Ewald)
-|                Force Adjust               0.51 ( 0.01% of Ewald)
-|                Virial junk                1.47 ( 0.01% of Ewald)
-|                Other                      2.39 ( 0.02% of Ewald)
-|             Ewald time             10217.73 (83.01% of Nonbo)
-|          Nonbond force          12309.08 (99.80% of Force)
-|          Bond/Angle/Dihedral       24.82 ( 0.20% of Force)
-|       Force time             12334.16 (98.83% of Runmd)
-|       Shake time                25.38 ( 0.20% of Runmd)
-|       Verlet update time       117.08 ( 0.94% of Runmd)
-|       Ekcmr time                 1.74 ( 0.01% of Runmd)
-|       Other                      2.36 ( 0.02% of Runmd)
-|    Runmd Time             12480.72 (100.0% of Total)
-| Total time             12481.00 (100.0% of ALL  )
+|                Recip Ewald time         312.51 ( 4.24% of Ewald)
+|                Force Adjust               0.48 ( 0.01% of Ewald)
+|                Virial junk                1.72 ( 0.02% of Ewald)
+|                Other                      2.38 ( 0.03% of Ewald)
+|             Ewald time              7367.98 (87.35% of Nonbo)
+|          Nonbond force           8434.74 (99.70% of Force)
+|          Bond/Angle/Dihedral       24.97 ( 0.30% of Force)
+|       Force time              8460.02 (98.41% of Runmd)
+|       Shake time                15.88 ( 0.18% of Runmd)
+|       Verlet update time       116.95 ( 1.36% of Runmd)
+|       Ekcmr time                 1.76 ( 0.02% of Runmd)
+|       Other                      2.15 ( 0.02% of Runmd)
+|    Runmd Time              8596.76 (100.0% of Total)
+| Total time              8597.07 (100.0% of ALL  )
 
 | Number of list builds   :       1106
 
@@ -1333,13 +1348,13 @@ default_name
 | Final Performance Info:
 | -----------------------------------------------------
 | Average timings for all steps:
-|     Elapsed(s) =   12480.72 Per Step(ms) =    1248.07
-|         ns/day =       0.14   seconds/ns =  624036.00
+|     Elapsed(s) =    8596.76 Per Step(ms) =     859.68
+|         ns/day =       0.20   seconds/ns =  429837.90
 | -----------------------------------------------------
 
-|           Job began  at 11:07:57.114  on 09/22/2020
-|           Setup done at 11:07:57.391  on 09/22/2020
-|           Run   done at 14:35:58.111  on 09/22/2020
+|           Job began  at 06:47:07.148  on 10/20/2020
+|           Setup done at 06:47:07.466  on 10/20/2020
+|           Run   done at 09:10:24.223  on 10/20/2020
 |     wallclock() was called  462325 times
 
 |3D-RISM memory allocation summary

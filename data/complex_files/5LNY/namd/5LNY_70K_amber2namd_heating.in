@@ -5,7 +5,7 @@ set temperature  300
 temperature $temperature
 # output
 outputName 5LNY_70K_heat
-binaryOutput no
+binaryOutput yes
 # initial temperature/velocities
 # dcd output
 dcdFile /icm/home/magdalu/residence-time-prediction/data/complex_files/5LNY/namd/5LNY_70K_heat.dcd

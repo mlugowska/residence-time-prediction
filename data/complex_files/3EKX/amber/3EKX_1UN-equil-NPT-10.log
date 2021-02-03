@@ -12,11 +12,11 @@
 | Final Performance Info:
 | -----------------------------------------------------
 | Average timings for last     100 steps:
-|     Elapsed(s) =      37.12 Per Step(ms) =     371.23
-|         ns/day =       0.47   seconds/ns =  185612.70
+|     Elapsed(s) =      32.74 Per Step(ms) =     327.41
+|         ns/day =       0.53   seconds/ns =  163703.13
 |
 | Average timings for all steps:
-|     Elapsed(s) =    3659.97 Per Step(ms) =     366.00
-|         ns/day =       0.47   seconds/ns =  182998.64
+|     Elapsed(s) =    3413.16 Per Step(ms) =     341.32
+|         ns/day =       0.51   seconds/ns =  170658.07
 | -----------------------------------------------------
 

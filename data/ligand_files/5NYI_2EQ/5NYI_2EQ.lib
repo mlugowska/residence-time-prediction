@@ -2,8 +2,8 @@
  "2EQ"
 !entry.2EQ.unit.atoms table  str name  str type  int typex  int resx  int flags  int seq  int elmnt  dbl chg
  "CL1" "cl" 0 1 131072 1 6 -0.085400
- "C1" "ca" 0 1 131072 2 6 0.213100
- "O1" "oh" 0 1 131072 3 8 -0.483100
+ "C1" "ca" 0 1 131072 2 6 0.217102
+ "O1" "oh" 0 1 131072 3 8 -0.483101
  "C2" "ca" 0 1 131072 4 6 -0.201000
  "N2" "nc" 0 1 131072 5 7 -0.339300
  "O2" "oh" 0 1 131072 6 8 -0.480100
