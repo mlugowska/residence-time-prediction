@@ -13,7 +13,7 @@ def convert(ligand_pdb: str, output_filename: str):
 
 
 def run():
-    ligand_files = get_files(externals.LIGAND_PATH, '_HH_noconnect.pdb')
+    ligand_files = get_files(externals.LIGAND_PATH, '72Y_HH_noconnect.pdb')
     for pdb_ in ligand_files:
         convert(pdb_, f'{pdb_[:-4]}.mol2')
 

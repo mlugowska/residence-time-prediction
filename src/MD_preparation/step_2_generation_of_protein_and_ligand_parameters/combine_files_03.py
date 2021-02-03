@@ -6,7 +6,7 @@ from src.utils.get_pdb_files import get_files
 
 
 def get_ligand_files() -> [List[str]]:
-    files = get_files(externals.LIGAND_PATH, 'pdb')
+    files = get_files(externals.LIGAND_PATH, 'BAW.pdb')
     min_length = min([len(x) for x in files])
     return list(filter(lambda x: len(x) < min_length + 2, files)), min_length
 

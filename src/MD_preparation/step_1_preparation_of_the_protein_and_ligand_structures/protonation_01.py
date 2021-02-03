@@ -1,7 +1,7 @@
 import os
 from typing import List
 
-# from pymol import cmd
+from pymol import cmd
 from src.utils import externals
 from src.utils.get_pdb_files import get_files
 
@@ -30,13 +30,13 @@ def rename_ligand(ligand_files: str):
 
 
 def run():
-    protein_structures = get_files(externals.PROTEIN_PATH, 'pdb')
-    ligand_structures = get_files(externals.LIGAND_PATH, 'pdb')
+    protein_structures = get_files(externals.PROTEIN_PATH, '.pdb')
+    ligand_structures = get_files(externals.LIGAND_PATH, '.pdb')
 
     protonate_structures(ligand_structures, 'ligand')
     protonate_structures(protein_structures,  'protein')
 
-    ligand_files = get_files(externals.LIGAND_PATH, 'HH.pdb')
+    ligand_files = get_files(externals.LIGAND_PATH, '.pdb')
     rename_ligand(ligand_files)
 
 

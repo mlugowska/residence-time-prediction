@@ -27,7 +27,7 @@ def select_water_residue(structure_files: List, complex_path: str, ligand_files:
 
 def run():
     ligand_structures = get_files(externals.LIGAND_PATH, 'HH_noconnect.pdb')
-    complex_structures = get_files(externals.COMPLEX_PATH, 'pdb')
+    complex_structures = get_files(externals.COMPLEX_PATH, '.pdb')
     select_water_residue(structure_files=complex_structures, complex_path=externals.COMPLEX_PATH,
                          ligand_files=ligand_structures, dist=5)
 

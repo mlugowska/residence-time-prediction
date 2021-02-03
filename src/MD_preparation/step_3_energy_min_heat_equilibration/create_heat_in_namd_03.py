@@ -2,7 +2,7 @@ from typing import Tuple, List
 
 from src.utils import externals
 from src.utils.get_pdb_files import get_files
-from src.MD_preparation.step_3_energy_min_heat_equilibration.create_bash_file_amber_01 import create_dir
+from src.MD_preparation.step_3_energy_min_heat_equilibration.create_bash_file_amber_01 import create_dir, change_path
 
 
 def create_heat_in_file(output_filename: str, prmtop_file: str, crd_file: str, output_path: str,
@@ -10,7 +10,7 @@ def create_heat_in_file(output_filename: str, prmtop_file: str, crd_file: str, o
     with open(output_filename, "w") as f:
         lines = ['# AMBER parameters- force field and input coordinates', f'parmfile {prmtop_file}',
                  f'ambercoor {crd_file}', 'set temperature  300', 'temperature $temperature', '# output',
-                 f'outputName {output_path[idx:]}_heat', 'binaryOutput no',
+                 f'outputName {output_path[idx:]}_heat', 'binaryOutput yes',
 
                  '# initial temperature/velocities',
                  '# dcd output', f'dcdFile {output_path}_heat.dcd', 'dcdFreq 5000',
@@ -73,30 +73,46 @@ def get_cell_vectors_params(crd_file: str) -> Tuple[str, str, str]:
         return last_line[2:12], last_line[14:24], last_line[26:36]
 
 
-def change_path(heat_in_file: str) -> None:
-    file_in = open(heat_in_file, 'rt')
-    data = file_in.read()
-    data = data.replace(externals.COMPLEX_PATH, externals.COMPLEX_ICM_PATH)
-    file_in.close()
-    file_out = open(heat_in_file, 'wt')
-    file_out.write(data)
-
-
-def get_pdb_id_from_crd_file(crd_file: str) -> Tuple[int, int, int]:
+def get_pdb_id_from_crd_file(crd_file: str) -> Tuple[int, int, int, str]:
     ab_conformations = ['6EYA', '5UGS', '5LNZ', '6DJ1', '2YKJ', '5J2X']
-
     if crd_file[66:70] in ab_conformations:
-        return -23, -27, -9
-    return -22, -26, -8
+        pdb_idx = -23
+        prmtop_file_idx = -27
+        idx = -9
+        complex_id = crd_file[pdb_idx:-14]
+    else:
+        pdb_idx = -22
+        prmtop_file_idx = -26
+        idx = -8
+        complex_id = crd_file[pdb_idx:-14]
+    return pdb_idx, prmtop_file_idx, idx, complex_id
 
 
-def parse_crd_file(crd_file: str, prmtop_files: List[str], pdb_id_idx: int, heat=False) -> Tuple[str, str, str]:
-    output_path = f'{crd_file[:71]}namd/{crd_file[pdb_id_idx:-14]}'
-    output_filename = f'{output_path}_amber2namd_heating.in' if heat else f'{output_path}_amber2namd_equilibr.in'
+def output_name(output_path: str, op_type='out'):
+    if op_type == 'heat':
+        return f'{output_path}_amber2namd_heating.in'
+    if op_type == 'equil':
+        return f'{output_path}_amber2namd_equilibr.in'
+    return f'{output_path}_RAMD.sh'
+
+
+def parse_crd_file(crd_file: str, prmtop_files: List[str], pdb_id_idx: int, dir_name: str, op_type: str,
+                   complex_id=None, pdb=False, pdbs_after_equil=None, coor_files=None, xsc_files=None, vel_files=None) \
+        -> Tuple[str, str, str, str, str, str, str]:
+    output_path = f'{crd_file[:71]}{dir_name}/{crd_file[pdb_id_idx:-14]}'
+    output_filename = output_name(output_path, op_type=op_type)
+
     prmtop_file = [prmtop_file for prmtop_file in prmtop_files if
                    prmtop_file[:-17] == f'{crd_file[:71]}{crd_file[pdb_id_idx:-14]}'][0]
 
-    return output_path, output_filename, prmtop_file
+    if pdb:
+        pdb_file = [pdb_file for pdb_file in pdbs_after_equil if complex_id in pdb_file][0]
+        coor_file = [pdb_file for pdb_file in coor_files if complex_id in pdb_file][0]
+        xsc_file = [pdb_file for pdb_file in xsc_files if complex_id in pdb_file][0]
+        vel_file = [pdb_file for pdb_file in vel_files if complex_id in pdb_file][0]
+        return output_path, output_filename, prmtop_file, pdb_file, coor_file, xsc_file, vel_file
+
+    return output_path, output_filename, prmtop_file, '', '', '', ''
 
 
 def run() -> None:
@@ -104,9 +120,10 @@ def run() -> None:
     crd_files = get_files(externals.COMPLEX_PATH, 'equil-NPT.crd')
 
     for crd_file in crd_files:
-        pdb_id_idx, prmtop_file_idx, idx = get_pdb_id_from_crd_file(crd_file)
-        output_path, output_filename, prmtop_file = parse_crd_file(crd_file, prmtop_files, pdb_id_idx, heat=True)
-        create_dir(path=prmtop_file[:prmtop_file_idx], name='namd')
+        pdb_id_idx, prmtop_file_idx, idx, _ = get_pdb_id_from_crd_file(crd_file)
+        create_dir(path=crd_file[:71], name='namd')
+        output_path, output_filename, prmtop_file, _, _, _, _ = parse_crd_file(crd_file, prmtop_files, pdb_id_idx,
+                                                                               dir_name='namd', op_type='heat')
         cell_vector_1, cell_vector_2, cell_vector_3 = get_cell_vectors_params(crd_file)
         create_heat_in_file(output_filename=output_filename, prmtop_file=prmtop_file, crd_file=crd_file,
                             cell_vector_1=cell_vector_1, cell_vector_2=cell_vector_2, cell_vector_3=cell_vector_3,

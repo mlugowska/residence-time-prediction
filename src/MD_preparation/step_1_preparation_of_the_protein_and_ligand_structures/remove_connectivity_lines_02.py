@@ -24,7 +24,7 @@ def remove_connects_from_file(structure_files: List):
 
 
 def run():
-    ligand_structures = get_files(externals.LIGAND_PATH, '_HH.pdb')
+    ligand_structures = get_files(externals.LIGAND_PATH, '.pdb')
     remove_connects_from_file(ligand_structures)
 
 
