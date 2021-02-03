@@ -7,7 +7,8 @@ binvelocities  5LNY_70K_heat.vel
 extendedSystem 5LNY_70K_heat.xsc
 # output
 outputName 5LNY_70K_equilibr
-binaryOutput no# initial temperature/velocities
+binaryOutput yes
+# initial temperature/velocities
 # dcd output
 dcdFile /icm/home/magdalu/residence-time-prediction/data/complex_files/5LNY/namd/5LNY_70K_equilibr.dcd
 dcdFreq 1000
@@ -38,7 +39,7 @@ twoawayx            yes
 # Constant Temperature Control
 langevin            on            ;# langevin dynamics
 langevinDamping     3.0            ;# damping coefficient of 5/ps, 1/ps is enough for MD
-##langevinTemp        $temperature  ;# random noise at this level
+langevinTemp        $temperature  ;# random noise at this level
 langevinHydrogen    no            ;# dont couple bath to hydrogens
 wrapAll             off
 wrapWater           off
@@ -53,7 +54,7 @@ restartname 5LNY_70K_equilibr
 restartfreq 1000
 binaryrestart yes
 firsttimestep      0  # reset frame counter# Nose-Hoover Langevin piston method 
-##langevinPiston        on
+langevinPiston        on
 langevinPistonTarget  1.01325      ;# pressure in bar -> 1 atm
 langevinPistonPeriod  1000.         ;# oscillation period around 100 fs
 langevinPistonDecay   1000.          ;# oscillation decay time of 50 fs

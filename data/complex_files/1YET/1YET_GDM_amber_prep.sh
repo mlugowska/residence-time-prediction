@@ -9,8 +9,8 @@ ntr=1, restraint_wt=500, restraintmask='(:1-213 & !@H= & !@Na= & !@Cl=)',
 maxcyc=1500, ntmin=1, ncyc=500, dx0=0.01, drms=0.0001,
 ntc=1,
 /
-" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM_min-500
-sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM_min-500 -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.inpcrd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.inpcrd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-500.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-500.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-500.log
+" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test-test/1YET_GDM_min-500
+sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM_min-500 -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.inpcrd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.inpcrd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-500.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-500.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-500.log
 echo "
 # Minimization performed for relaxing the solute : restraint_wt=1
 &cntrl
@@ -21,8 +21,8 @@ ntr=1, restraint_wt=100, restraintmask='(:1-213 & !@H= & !@Na= & !@Cl=)',
 maxcyc=1500, ntmin=1, ncyc=100, dx0=0.01, drms=0.0001,
 ntc=1,
 /
-" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM_min-100
-sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM_min-100 -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-500.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-500.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-100.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-100.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-100.log
+" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM_min-100
+sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM_min-100 -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-500.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-500.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-100.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-100.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-100.log
 echo "
 # Minimization performed for relaxing the solute : restraint_wt=1
 &cntrl
@@ -33,8 +33,8 @@ ntr=1, restraint_wt=5, restraintmask='(:1-213 & !@H= & !@Na= & !@Cl=)',
 maxcyc=1500, ntmin=1, ncyc=500, dx0=0.01, drms=5,
 ntc=1,
 /
-" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM_min-5
-sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM_min-5 -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-100.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-100.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-5.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-5.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-5.log
+" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM_min-5
+sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM_min-5 -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-100.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-100.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-5.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-5.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-5.log
 echo "
 # Minimization performed for relaxing the solute : restraint_wt=1
 &cntrl
@@ -45,8 +45,8 @@ ntr=0,
 maxcyc=1500, ntmin=1, ncyc=500, dx0=0.01, drms=0.0001,
 ntc=1,
 /
-" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM_min
-sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM_min -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-5.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min-5.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min.log
+" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM_min
+sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM_min -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-5.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min-5.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min.log
 echo "
 # NVT Heating with restrained heavy atoms 50 kcal/mol*A^2
 &cntrl
@@ -62,8 +62,8 @@ vlimit=15,
 ntp=0,
 tol=0.00000001,
  /'
-" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM_heat
-sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM_heat -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-min.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-heat.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-heat.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-heat.log
+" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM_heat
+sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM_heat -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-min.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-heat.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-heat.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-heat.log
 echo "
 # NPT equilibration with restrained heavy atoms 50 kcal/mol*A^2
 &cntrl
@@ -79,8 +79,8 @@ vlimit=15,
 ntp=1, taup=1.0, pres0=1.0, comp=44.6,
 tol=0.00000001, 
 /
-" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-50
-sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-50 -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-heat.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-heat.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-50.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-50.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-50.log -x /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-50.mdcrd
+" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-50
+sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-50 -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-heat.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-heat.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-50.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-50.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-50.log -x /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-50.mdcrd
 echo "
 # NPT equilibration with restrained heavy atoms 50 kcal/mol*A^2
 &cntrl
@@ -96,8 +96,8 @@ vlimit=15,
 ntp=1, taup=1.0, pres0=1.0, comp=44.6,
 tol=0.00000001, 
 /
-" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-10
-sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-10 -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-50.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-50.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-10.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-10.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-10.log -x /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-10.mdcrd
+" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-10
+sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-10 -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-50.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-50.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-10.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-10.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-10.log -x /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-10.mdcrd
 echo "
 # NPT equilibration with restrained heavy atoms 50 kcal/mol*A^2
 &cntrl
@@ -113,8 +113,8 @@ vlimit=15,
 ntp=1, taup=1.0, pres0=1.0, comp=44.6,
 tol=0.00000001, 
 /
-" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-2
-sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-2 -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-10.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-10.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-2.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-2.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-2.log -x /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-2.mdcrd
+" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-2
+sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-2 -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-10.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-10.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-2.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-2.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-2.log -x /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-2.mdcrd
 echo "
 # NPT equilibration with restrained heavy atoms 50 kcal/mol*A^2
 &cntrl
@@ -129,5 +129,5 @@ vlimit=15,
 ntp=1, taup=1.0, pres0=1.0, comp=44.6,
 tol=0.00000001, 
 /
-" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT
-sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-2.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT-2.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT.log -x /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber/1YET_GDM-equil-NPT.mdcrd
+" >> /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT
+sander -O -i /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT -p /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/1YET_GDM_tip3_ions.prmtop -c /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-2.crd -ref /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT-2.crd -o /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT.ou -r /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT.crd -inf /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT.log -x /Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1YET/amber-test/1YET_GDM-equil-NPT.mdcrd

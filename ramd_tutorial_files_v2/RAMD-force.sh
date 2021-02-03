@@ -66,10 +66,7 @@ langevindamping                                1.0
 langevinhydrogen                             off
 
 #***initial contraints***********************************************************
-constraints                                  off 
-      
-#***initial fixed atoms***********************************************************
-fixedAtoms                                   off
+constraints                                  off
       
 #***pressure control*************************************************************
 useGroupPressure                             yes

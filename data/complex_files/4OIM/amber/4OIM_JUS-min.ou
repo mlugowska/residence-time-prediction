@@ -3,7 +3,7 @@
           Amber 20 SANDER                              2020
           -------------------------------------------------------
 
-| Run on 09/22/2020 at 15:04:04
+| Run on 10/20/2020 at 09:41:12
 
 |   Executable path: sander
 | Working directory: /Users/mlugowska/PhD/residence-time-prediction
@@ -30,6 +30,17 @@ File Assignments:
 
  Here is the input file:
 
+                                                                               
+# Minimization performed for relaxing the solute : restraint_wt=1              
+&cntrl                                                                         
+imin=1, ntx=1, irest=0, ntrx=1, ntxo=1,                                        
+ntpr=25, ntwr=500, ntwx=0, ntwv=0, ntwe=0,ntf=1, ntb=1, dielc=1.0, cut=10.0,   
+nsnb=25, igb=0,                                                                
+ntr=0,                                                                         
+maxcyc=1500, ntmin=1, ncyc=500, dx0=0.01, drms=0.0001,                         
+ntc=1,                                                                         
+/                                                                              
+                                                                               
                                                                                
 # Minimization performed for relaxing the solute : restraint_wt=1              
 &cntrl                                                                         
@@ -652,37 +663,36 @@ defa
    5.  TIMINGS
 --------------------------------------------------------------------------------
 
-|                Build the list             4.43 (90.76% of List )
-|                Other                      0.45 ( 9.24% of List )
-|             List time                  4.88 ( 0.55% of Nonbo)
-|                   Short_ene time           819.45 (99.53% of Direc)
-|                   Other                      3.85 ( 0.47% of Direc)
-|                Direct Ewald time        823.30 (93.70% of Ewald)
-|                Adjust Ewald time          2.34 ( 0.27% of Ewald)
-|                   Fill Bspline coeffs        2.06 ( 3.93% of Recip)
-|                   Fill charge grid           6.68 (12.75% of Recip)
-|                   Scalar sum                 9.72 (18.55% of Recip)
-|                   Grad sum                  13.81 (26.34% of Recip)
-|                   FFT time                  20.14 (38.43% of Recip)
-|                   Other                      0.00 ( 0.01% of Recip)
-|                Recip Ewald time          52.42 ( 5.97% of Ewald)
-|                Virial junk                0.28 ( 0.03% of Ewald)
-|                Other                      0.36 ( 0.04% of Ewald)
-|             Ewald time               878.69 (99.45% of Nonbo)
-|          Nonbond force            883.57 (99.50% of Force)
-|          Bond/Angle/Dihedral        4.41 ( 0.50% of Force)
-|       Force time               888.02 (100.0% of Runmd)
-|    Runmd Time               888.02 (99.84% of Total)
-|    Other                      1.39 ( 0.16% of Total)
-| Total time               889.43 (100.0% of ALL  )
+|                Build the list             4.37 (90.59% of List )
+|                Other                      0.45 ( 9.41% of List )
+|             List time                  4.82 ( 0.26% of Nonbo)
+|                   Short_ene time          1607.01 (99.75% of Direc)
+|                   Other                      4.03 ( 0.25% of Direc)
+|                Direct Ewald time       1611.04 (85.44% of Ewald)
+|                Adjust Ewald time          2.36 ( 0.13% of Ewald)
+|                   Fill Bspline coeffs        2.06 ( 0.76% of Recip)
+|                   Fill charge grid           6.46 ( 2.38% of Recip)
+|                   Scalar sum                 9.85 ( 3.63% of Recip)
+|                   Grad sum                  14.70 ( 5.41% of Recip)
+|                   FFT time                 238.43 (87.82% of Recip)
+|                Recip Ewald time         271.50 (14.40% of Ewald)
+|                Virial junk                0.24 ( 0.01% of Ewald)
+|                Other                      0.36 ( 0.02% of Ewald)
+|             Ewald time              1885.52 (99.74% of Nonbo)
+|          Nonbond force           1890.34 (99.76% of Force)
+|          Bond/Angle/Dihedral        4.48 ( 0.24% of Force)
+|       Force time              1894.86 (100.0% of Runmd)
+|    Runmd Time              1894.86 (100.0% of Total)
+|    Other                      1.11 ( 0.06% of Total)
+| Total time              1895.99 (100.0% of ALL  )
 
 | Number of list builds   :          6
 
 | Highest rstack allocated:    2096779
 | Highest istack allocated:      37071
-|           Job began  at 15:04:04.324  on 09/22/2020
-|           Setup done at 15:04:04.560  on 09/22/2020
-|           Run   done at 15:18:53.753  on 09/22/2020
+|           Job began  at 09:41:12.462  on 10/20/2020
+|           Setup done at 09:41:12.711  on 10/20/2020
+|           Run   done at 10:12:48.453  on 10/20/2020
 |     wallclock() was called   57060 times
 
 |3D-RISM memory allocation summary

@@ -3,7 +3,7 @@
           Amber 20 SANDER                              2020
           -------------------------------------------------------
 
-| Run on 09/22/2020 at 04:39:52
+| Run on 10/20/2020 at 02:01:37
 
 |   Executable path: sander
 | Working directory: /Users/mlugowska/PhD/residence-time-prediction
@@ -30,6 +30,22 @@ File Assignments:
 
  Here is the input file:
 
+                                                                               
+# NPT equilibration with restrained heavy atoms 50 kcal/mol*A^2                
+&cntrl                                                                         
+imin=0, ntx=5, irest=1, ntrx=1, ntxo=1,                                        
+ntpr=100, ntwx=1000, ntwv=1000, ntwe=1000,                                     
+ntc=2, ntf=2, ntb=2, dielc=1.0, cut=10.0,                                      
+nsnb=100, igb=0,                                                               
+ntr=1, restraint_wt=10.0, restraintmask=':1-268 & !@H= & !@Na= & !@Cl=',       
+nstlim=10000,                                                                  
+t=0.0, dt=0.002,                                                               
+ntt=3, gamma_ln=1.0, tempi=300.0, temp0=300.0,                                 
+vlimit=15,                                                                     
+ntp=1, taup=1.0, pres0=1.0, comp=44.6,                                         
+tol=0.00000001,                                                                
+/                                                                              
+                                                                               
                                                                                
 # NPT equilibration with restrained heavy atoms 50 kcal/mol*A^2                
 &cntrl                                                                         
@@ -1425,34 +1441,34 @@ default_name
    5.  TIMINGS
 --------------------------------------------------------------------------------
 
-|                Build the list          1030.46 (99.68% of List )
+|                Build the list          1034.16 (99.68% of List )
 |                Other                      3.30 ( 0.32% of List )
-|             List time               1033.76 (12.40% of Nonbo)
-|                   Short_ene time          6902.21 (99.55% of Direc)
-|                   Other                     30.93 ( 0.45% of Direc)
-|                Direct Ewald time       6933.14 (94.96% of Ewald)
-|                Adjust Ewald time         15.75 ( 0.22% of Ewald)
-|                   Fill Bspline coeffs       14.36 ( 4.14% of Recip)
-|                   Fill charge grid          47.07 (13.55% of Recip)
-|                   Scalar sum                59.01 (16.99% of Recip)
-|                   Grad sum                 103.68 (29.85% of Recip)
-|                   FFT time                 123.15 (35.46% of Recip)
+|             List time               1037.46 (12.38% of Nonbo)
+|                   Short_ene time          6946.79 (99.56% of Direc)
+|                   Other                     30.63 ( 0.44% of Direc)
+|                Direct Ewald time       6977.43 (94.99% of Ewald)
+|                Adjust Ewald time         15.81 ( 0.22% of Ewald)
+|                   Fill Bspline coeffs       14.32 ( 4.12% of Recip)
+|                   Fill charge grid          47.22 (13.58% of Recip)
+|                   Scalar sum                59.08 (16.99% of Recip)
+|                   Grad sum                 103.75 (29.83% of Recip)
+|                   FFT time                 123.41 (35.48% of Recip)
 |                   Other                      0.03 ( 0.01% of Recip)
-|                Recip Ewald time         347.30 ( 4.76% of Ewald)
+|                Recip Ewald time         347.81 ( 4.73% of Ewald)
 |                Force Adjust               0.48 ( 0.01% of Ewald)
 |                Virial junk                1.71 ( 0.02% of Ewald)
 |                Other                      2.38 ( 0.03% of Ewald)
-|             Ewald time              7300.79 (87.60% of Nonbo)
-|          Nonbond force           8334.56 (99.70% of Force)
-|          Bond/Angle/Dihedral       24.88 ( 0.30% of Force)
+|             Ewald time              7345.64 (87.62% of Nonbo)
+|          Nonbond force           8383.11 (99.70% of Force)
+|          Bond/Angle/Dihedral       24.92 ( 0.30% of Force)
 |          Other                      0.49 ( 0.01% of Force)
-|       Force time              8359.93 (98.36% of Runmd)
-|       Shake time                15.83 ( 0.19% of Runmd)
-|       Verlet update time       119.19 ( 1.40% of Runmd)
+|       Force time              8408.52 (98.37% of Runmd)
+|       Shake time                15.90 ( 0.19% of Runmd)
+|       Verlet update time       119.56 ( 1.40% of Runmd)
 |       Ekcmr time                 1.77 ( 0.02% of Runmd)
-|       Other                      2.17 ( 0.03% of Runmd)
-|    Runmd Time              8498.90 (100.0% of Total)
-| Total time              8499.27 (100.0% of ALL  )
+|       Other                      2.19 ( 0.03% of Runmd)
+|    Runmd Time              8547.94 (100.0% of Total)
+| Total time              8548.32 (100.0% of ALL  )
 
 | Number of list builds   :       1109
 
@@ -1462,13 +1478,13 @@ default_name
 | Final Performance Info:
 | -----------------------------------------------------
 | Average timings for all steps:
-|     Elapsed(s) =    8498.90 Per Step(ms) =     849.89
-|         ns/day =       0.20   seconds/ns =  424944.90
+|     Elapsed(s) =    8547.94 Per Step(ms) =     854.79
+|         ns/day =       0.20   seconds/ns =  427396.87
 | -----------------------------------------------------
 
-|           Job began  at 04:39:52.406  on 09/22/2020
-|           Setup done at 04:39:52.783  on 09/22/2020
-|           Run   done at 07:01:31.681  on 09/22/2020
+|           Job began  at 02:01:37.312  on 10/20/2020
+|           Setup done at 02:01:37.699  on 10/20/2020
+|           Run   done at 04:24:05.636  on 10/20/2020
 |     wallclock() was called  462331 times
 
 |3D-RISM memory allocation summary
