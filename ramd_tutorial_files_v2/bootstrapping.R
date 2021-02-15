@@ -30,8 +30,8 @@ getbootstr <- function(x) {
 }
 
 
-filelist <- list.files(path = "/Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2X23/ramd/out",
-                       pattern = paste0("2X23_TCU", "_times"), full.names = TRUE)
+filelist <- list.files(path = "/Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1XKK/ramd/2",
+                       pattern = paste0("1XKK", "_times"), full.names = TRUE)
 out <- "FILE to be analyzed:"
 out
 filelist
@@ -42,7 +42,7 @@ for (j in seq_along(filelist)) {
   out_distr <- paste(MEAN = c(mean(x1), SD = sd(x1)))
   list_out <- c(list_out, mean(x1), sd(x1))
   h <- hist(x1)
-  write(paste(h$breaks, h$density), paste0("/Users/mlugowska/PhD/residence-time-prediction/data/complex_files/2X23/ramd/outdistribution.dat", toString(j)), ncolumns = 1, sep = "\t")
+  write(paste(h$breaks, h$density), paste0("/Users/mlugowska/PhD/residence-time-prediction/data/complex_files/1XKK/ramd/2/distribution.dat", toString(j)), ncolumns = 1, sep = "\t")
 }
 out <- " MEAN /ns   SD "
 out
