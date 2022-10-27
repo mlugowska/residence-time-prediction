@@ -1,15 +1,15 @@
 import os
 
-from src.utils import externals
-from src.utils.get_pdb_files import get_files
+from utils import externals
+from utils.get_pdb_files import get_md_files
 
 
 def create_batch_file(batch_filename: str, job_name: str, slurm_out: str, input_file: str, output_file: str) -> None:
     with open(batch_filename, "w") as f:
         lines = [
-            '#!/bin/bash -l', f'#SBATCH -J {job_name}', '#SBATCH --nodes=6', '#SBATCH --ntasks-per-node=10',
-            '#SBATCH --cpus-per-task=2', '#SBATCH --account=GR80-32',
-            '#SBATCH --partition=topola', f'#SBATCH --output="{slurm_out}"',
+            '#!/bin/bash -l', f'#SBATCH -J {job_name}', '#SBATCH --nodes=4', '#SBATCH --ntasks-per-node=10',
+            '#SBATCH --cpus-per-task=2', '#SBATCH --account=g85-918', '#SBATCH --time=48:00:00',
+            '#SBATCH --partition=okeanos', f'#SBATCH --output="{slurm_out}"',
 
             'module load apps/namd/2.13',
             f'srun namd2 ++ppn 2 {input_file} > {output_file}'
@@ -35,10 +35,11 @@ def create(in_file: str, batch_file_func, i=None) -> None:
 
 
 def run_namd() -> None:
-    heat_in_files = get_files(externals.COMPLEX_PATH, 'amber2namd_heating.in')
+    pdbs = list(externals.PDB_TO_DO.keys())
 
-    for in_file in heat_in_files:
-        create(in_file, create_batch_file)
+    for pdb_id in pdbs:
+        heat_in_file = get_md_files(f'{externals.DATA_PATH}/{pdb_id}/namd', 'amber2namd_heating.in')[0]
+        create(heat_in_file, create_batch_file)
 
 
 run_namd()

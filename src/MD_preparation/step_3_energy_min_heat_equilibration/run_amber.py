@@ -10,7 +10,7 @@ def call_file(bash_file: str) -> None:
 
 
 def run_amber() -> None:
-    bash_files = get_files(externals.COMPLEX_PATH, 'amber_prep.sh')
+    bash_files = get_files(externals.DATA_PATH, 'amber_prep.sh')
 
     for bash_file in bash_files:
         print(f'Run complex id: {bash_file[71:75]}')

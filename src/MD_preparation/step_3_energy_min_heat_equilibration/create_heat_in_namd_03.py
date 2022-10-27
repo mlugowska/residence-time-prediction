@@ -1,20 +1,20 @@
-from typing import Tuple, List
+from typing import Tuple
 
-from src.utils import externals
-from src.utils.get_pdb_files import get_files
-from src.MD_preparation.step_3_energy_min_heat_equilibration.create_bash_file_amber_01 import create_dir, change_path
+from MD_preparation.step_3_energy_min_heat_equilibration.create_bash_file_amber_01 import create_dir
+from utils import externals
+from utils.get_pdb_files import get_files, get_md_files
 
 
-def create_heat_in_file(output_filename: str, prmtop_file: str, crd_file: str, output_path: str,
-                        cell_vector_1: str, cell_vector_2: str, cell_vector_3: str, idx: int) -> None:
+def create_heat_in_file(output_filename: str, prmtop_file: str, crd_file: str, output_name: str,
+                        cell_vector_1: str, cell_vector_2: str, cell_vector_3: str) -> None:
     with open(output_filename, "w") as f:
         lines = ['# AMBER parameters- force field and input coordinates', f'parmfile {prmtop_file}',
                  f'ambercoor {crd_file}', 'set temperature  300', 'temperature $temperature', '# output',
-                 f'outputName {output_path[idx:]}_heat', 'binaryOutput yes',
+                 f'outputName {output_name}_heat', 'binaryOutput yes',
 
                  '# initial temperature/velocities',
-                 '# dcd output', f'dcdFile {output_path}_heat.dcd', 'dcdFreq 5000',
-                 f'velDcdFile {output_path}_heat.vel.dcd', 'velDcdFreq 5000',
+                 '# dcd output', f'dcdFile {output_name}_heat.dcd', 'dcdFreq 5000',
+                 f'velDcdFile {output_name}_heat.vel.dcd', 'velDcdFreq 5000',
 
                  '# forcefield parameters modified for AMBER', 'amber yes', 'readexclusions     yes',
                  'exclude            scaled1-4', '1-4scaling         0.83333333   #=1/1.2', 'scnb               2',
@@ -53,7 +53,7 @@ def create_heat_in_file(output_filename: str, prmtop_file: str, crd_file: str, o
                  '##useFlexibleCell       no  ;# no for water box, yes for membrane',
                  '##useConstantArea       no  ;# no for water box, maybe for membrane',
 
-                 f'restartname {output_path[idx:]}_heat', 'restartfreq 10000', 'binaryrestart yes',
+                 f'restartname {output_name}_heat', 'restartfreq 10000', 'binaryrestart yes',
                  'firsttimestep      0      # reset frame counter',
 
                  '#=========== constant pressure heating (by changing velocity) ',
@@ -73,22 +73,7 @@ def get_cell_vectors_params(crd_file: str) -> Tuple[str, str, str]:
         return last_line[2:12], last_line[14:24], last_line[26:36]
 
 
-def get_pdb_id_from_crd_file(crd_file: str) -> Tuple[int, int, int, str]:
-    ab_conformations = ['6EYA', '5UGS', '5LNZ', '6DJ1', '2YKJ', '5J2X']
-    if crd_file[66:70] in ab_conformations:
-        pdb_idx = -23
-        prmtop_file_idx = -27
-        idx = -9
-        complex_id = crd_file[pdb_idx:-14]
-    else:
-        pdb_idx = -22
-        prmtop_file_idx = -26
-        idx = -8
-        complex_id = crd_file[pdb_idx:-14]
-    return pdb_idx, prmtop_file_idx, idx, complex_id
-
-
-def output_name(output_path: str, op_type='out'):
+def output_name(output_path: str, op_type='out') -> str:
     if op_type == 'heat':
         return f'{output_path}_amber2namd_heating.in'
     if op_type == 'equil':
@@ -96,40 +81,32 @@ def output_name(output_path: str, op_type='out'):
     return f'{output_path}_RAMD.sh'
 
 
-def parse_crd_file(crd_file: str, prmtop_files: List[str], pdb_id_idx: int, dir_name: str, op_type: str,
-                   complex_id=None, pdb=False, pdbs_after_equil=None, coor_files=None, xsc_files=None, vel_files=None) \
-        -> Tuple[str, str, str, str, str, str, str]:
-    output_path = f'{crd_file[:71]}{dir_name}/{crd_file[pdb_id_idx:-14]}'
-    output_filename = output_name(output_path, op_type=op_type)
-
-    prmtop_file = [prmtop_file for prmtop_file in prmtop_files if
-                   prmtop_file[:-17] == f'{crd_file[:71]}{crd_file[pdb_id_idx:-14]}'][0]
-
-    if pdb:
-        pdb_file = [pdb_file for pdb_file in pdbs_after_equil if complex_id in pdb_file][0]
-        coor_file = [pdb_file for pdb_file in coor_files if complex_id in pdb_file][0]
-        xsc_file = [pdb_file for pdb_file in xsc_files if complex_id in pdb_file][0]
-        vel_file = [pdb_file for pdb_file in vel_files if complex_id in pdb_file][0]
-        return output_path, output_filename, prmtop_file, pdb_file, coor_file, xsc_file, vel_file
-
-    return output_path, output_filename, prmtop_file, '', '', '', ''
-
-
 def run() -> None:
-    prmtop_files = get_files(externals.COMPLEX_PATH, 'prmtop')
-    crd_files = get_files(externals.COMPLEX_PATH, 'equil-NPT.crd')
+    pdbs = list(externals.PDB_TO_DO.keys())
+    prmtop_files = get_files(externals.DATA_PATH, 'ions.prmtop', given_dirs=pdbs)
 
-    for crd_file in crd_files:
-        pdb_id_idx, prmtop_file_idx, idx, _ = get_pdb_id_from_crd_file(crd_file)
-        create_dir(path=crd_file[:71], name='namd')
-        output_path, output_filename, prmtop_file, _, _, _, _ = parse_crd_file(crd_file, prmtop_files, pdb_id_idx,
-                                                                               dir_name='namd', op_type='heat')
+    for pdb_id in pdbs:
+        path = f'{externals.DATA_PATH}/{pdb_id}'
+        create_dir(path=path, name='namd')
+        create_dir(path=f'{path}/namd', name='configs')
+
+        crd_file = get_md_files(f'{path}/amber/', 'equil-NPT.crd')[0]
+
+        prmtop_file = [file for file in prmtop_files if pdb_id in file][0]
+        output_binary_filenames = f'{pdb_id}_{externals.PDB_TO_DO.get(pdb_id)}'
+        output_file = f'{externals.DATA_PATH}/{pdb_id}/namd/configs/{output_binary_filenames}'
+        output_filename = output_name(output_path=output_file, op_type='heat')
+
+        icm_path = f'{externals.ICM_PATH}/{pdb_id}'
+
         cell_vector_1, cell_vector_2, cell_vector_3 = get_cell_vectors_params(crd_file)
-        create_heat_in_file(output_filename=output_filename, prmtop_file=prmtop_file, crd_file=crd_file,
-                            cell_vector_1=cell_vector_1, cell_vector_2=cell_vector_2, cell_vector_3=cell_vector_3,
-                            output_path=output_path, idx=idx)
 
-        change_path(output_filename)
+        icm_crd = f'{icm_path}{crd_file[len(path):]}'
+        icm_prmtop = f'{icm_path}{prmtop_file[len(path):]}'
+
+        create_heat_in_file(crd_file=icm_crd, prmtop_file=icm_prmtop, output_name=output_binary_filenames,
+                            output_filename=output_filename, cell_vector_1=cell_vector_1, cell_vector_2=cell_vector_2,
+                            cell_vector_3=cell_vector_3)
 
 
 run()

@@ -1,8 +1,9 @@
-import os
 from typing import List
 
 from pymol import cmd
 
+from src.MD_preparation.step_1_preparation_of_the_protein_and_ligand_structures.remove_connectivity_lines_02 import \
+    remove_connect
 from src.utils import externals
 from src.utils.get_pdb_files import get_files
 
@@ -10,10 +11,9 @@ from src.utils.get_pdb_files import get_files
 def protonate_hoh(files: List):
     for file in files:
         cmd.load(file)
-        cmd.h_add(selection=f'{file[-12:-4]}')
-        output_path = os.path.join(externals.COMPLEX_PATH, 'crystallographic_hoh_hh')
-        output_file = os.path.join(output_path, f'{file[-12:-4]}_HH.pdb')
-        cmd.save(output_file, f'{file[-12:-4]}')
+        selection = f'{file[-12:-4]}'
+        cmd.h_add(selection=selection)
+        cmd.save(f'{file[:-4]}_HH.pdb', selection)
 
 
 def renumber_h(line: str):
@@ -24,24 +24,28 @@ def renumber_h(line: str):
     return line
 
 
+def change_h_numbering(file_name: str, file_obj: List):
+    with open(file_name, 'w') as outfile:
+        for index, line in enumerate(file_obj):
+            line = renumber_h(line)
+            outfile.write(line)
+
+
 def remove_connectivity(files: List):
     for pdb_file in files:
         infile = open(pdb_file, 'r').readlines()
-        with open(pdb_file, 'w') as outfile:
-            for index, line in enumerate(infile):
-                if 'CONECT' not in line:
-                    line = renumber_h(line)
-                    outfile.write(line)
+        remove_connect(file_name=pdb_file, file_obj=infile)
+
+        infile = open(pdb_file, 'r').readlines()
+        change_h_numbering(file_name=pdb_file, file_obj=infile)
 
 
 def run():
-    file_path = os.path.join(externals.COMPLEX_PATH, 'crystallographic_hoh')
-    files = get_files(file_path, '.pdb')
-
+    pdbs = list(externals.PDB_TO_DO.keys())
+    files = get_files(externals.DATA_PATH, ext='_HOH.pdb', given_dirs=pdbs, type_='complex')
     protonate_hoh(files)
 
-    file_path_hh = os.path.join(externals.COMPLEX_PATH, 'crystallographic_hoh_hh')
-    files_hh = get_files(file_path_hh, '.pdb')
+    files_hh = get_files(externals.DATA_PATH, ext='_HOH_HH.pdb', given_dirs=pdbs, type_='complex')
     remove_connectivity(files_hh)
 
 

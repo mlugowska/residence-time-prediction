@@ -1,21 +1,20 @@
-from src.MD_preparation.step_3_energy_min_heat_equilibration.create_heat_in_namd_03 import get_pdb_id_from_crd_file, \
-    parse_crd_file, change_path
+from src.MD_preparation.step_3_energy_min_heat_equilibration.create_heat_in_namd_03 import output_name
 from src.utils import externals
-from src.utils.get_pdb_files import get_files
+from src.utils.get_pdb_files import get_files, get_md_files
 
 
-def create_equilibr_file(output_filename: str, prmtop_file: str, crd_file: str, output_path: str, idx: int) -> None:
+def create_equilibr_file(output_filename: str, prmtop_file: str, crd_file: str, output_name: str) -> None:
     with open(output_filename, "w") as f:
         lines = ['# AMBER parameters- force field and input coordinates', f'parmfile {prmtop_file}',
                  f'ambercoor {crd_file}', 'set temperature  300',
 
-                 f'bincoordinates {output_path[idx:]}_heat.coor', f'binvelocities  {output_path[idx:]}_heat.vel',
-                 f'extendedSystem {output_path[idx:]}_heat.xsc', '# output', f'outputName {output_path[idx:]}_equilibr',
+                 f'bincoordinates {output_name}_heat.coor', f'binvelocities  {output_name}_heat.vel',
+                 f'extendedSystem {output_name}_heat.xsc', '# output', f'outputName {output_name}_equilibr',
                  'binaryOutput yes',
 
                  '# initial temperature/velocities',
-                 '# dcd output', f'dcdFile {output_path}_equilibr.dcd', 'dcdFreq 1000',
-                 f'velDcdFile {output_path}_equilibr.vel.dcd', 'velDcdFreq 1000',
+                 '# dcd output', f'dcdFile {output_name}_equilibr.dcd', 'dcdFreq 1000',
+                 f'velDcdFile {output_name}_equilibr.vel.dcd', 'velDcdFreq 1000',
 
                  '# forcefield parameters modified for AMBER', 'amber yes', 'readexclusions     yes',
                  'exclude            scaled1-4', '1-4scaling         0.83333333   #=1/1.2', 'scnb               2',
@@ -39,7 +38,7 @@ def create_equilibr_file(output_filename: str, prmtop_file: str, crd_file: str, 
 
                  'ldbUnloadOne      yes', 'noPatchesOnOne      yes',
 
-                 '# md', 'numSteps 10000000', f'restartname {output_path[idx:]}_equilibr', 'restartfreq 1000',
+                 '# md', 'numSteps 10000000', f'restartname {output_name}_equilibr', 'restartfreq 1000',
                  'binaryrestart yes', 'firsttimestep      0  # reset frame counter'
 
                                       '# Nose-Hoover Langevin piston method ', 'langevinPiston        on',
@@ -60,16 +59,26 @@ def create_equilibr_file(output_filename: str, prmtop_file: str, crd_file: str, 
 
 
 def run() -> None:
-    prmtop_files = get_files(externals.COMPLEX_PATH, 'prmtop')
-    crd_files = get_files(externals.COMPLEX_PATH, 'equil-NPT.crd')
+    pdbs = list(externals.PDB_TO_DO.keys())
+    prmtop_files = get_files(externals.DATA_PATH, 'ions.prmtop', given_dirs=pdbs)
 
-    for crd_file in crd_files:
-        pdb_id_idx, prmtop_file_idx, idx, _ = get_pdb_id_from_crd_file(crd_file)
-        output_path, output_filename, prmtop_file, _, _, _, _ = parse_crd_file(crd_file, prmtop_files, pdb_id_idx,
-                                                                               dir_name='namd', op_type='equil')
-        create_equilibr_file(output_filename=output_filename, prmtop_file=prmtop_file, crd_file=crd_file,
-                             output_path=output_path, idx=idx)
-        change_path(output_filename)
+    for pdb_id in pdbs:
+        path = f'{externals.DATA_PATH}/{pdb_id}'
+
+        crd_file = get_md_files(f'{path}/amber/', 'equil-NPT.crd')[0]
+
+        prmtop_file = [file for file in prmtop_files if pdb_id in file][0]
+        output_binary_filenames = f'{pdb_id}_{externals.PDB_TO_DO.get(pdb_id)}'
+        output_file = f'{externals.DATA_PATH}/{pdb_id}/namd/configs/{output_binary_filenames}'
+        output_filename = output_name(output_path=output_file, op_type='equil')
+
+        icm_path = f'{externals.ICM_PATH}/{pdb_id}'
+
+        icm_crd = f'{icm_path}{crd_file[len(path):]}'
+        icm_prmtop = f'{icm_path}{prmtop_file[len(path):]}'
+
+        create_equilibr_file(crd_file=icm_crd, prmtop_file=icm_prmtop, output_name=output_binary_filenames,
+                             output_filename=output_filename)
 
 
 run()

@@ -1,8 +1,8 @@
 import os
 from typing import Tuple, List
 
-from src.utils import externals
-from src.utils.get_pdb_files import get_files
+from utils import externals
+from utils.get_pdb_files import get_files
 
 
 def create_bash_file(content: List[str], output_filename: str) -> None:
@@ -16,8 +16,8 @@ def create_batch_file(batch_filename: str, job_name: str, slurm_out: str, comman
     with open(batch_filename, "w") as f:
         lines = [
             '#!/bin/bash -l', f'#SBATCH -J {job_name}', '#SBATCH --nodes=6', '#SBATCH --ntasks-per-node=14',
-            '#SBATCH --cpus-per-task=2', '#SBATCH --account=GR80-32',
-            '#SBATCH --partition=topola', f'#SBATCH --output="{slurm_out}"',
+            '#SBATCH --cpus-per-task=2', '#SBATCH --account=g85-918',
+            '#SBATCH --partition=okeanos', f'#SBATCH --output="{slurm_out}"',
 
             'module load apps/ambertools/20',
             f'{command}'
@@ -26,17 +26,6 @@ def create_batch_file(batch_filename: str, job_name: str, slurm_out: str, comman
         for line_ in lines:
             f.writelines(line_)
             f.writelines('\n')
-
-    change_path(batch_filename)
-
-
-def change_path(heat_in_file: str) -> None:
-    file_in = open(heat_in_file, 'rt')
-    data = file_in.read()
-    data = data.replace(externals.COMPLEX_PATH, externals.COMPLEX_ICM_PATH)
-    file_in.close()
-    file_out = open(heat_in_file, 'wt')
-    file_out.write(data)
 
 
 def get_protein_range(complex_file: str) -> Tuple[int, int]:
@@ -61,23 +50,22 @@ def create_dir(path: str, name: str) -> None:
 
 
 def run() -> None:
-    prmtop_files = get_files(externals.COMPLEX_PATH, 'prmtop')
-    inpcrd_files = get_files(externals.COMPLEX_PATH, 'inpcrd')
-    pdb_files = get_files(externals.COMPLEX_PATH, 'tip3_ions.pdb')
+    pdbs = list(externals.PDB_TO_DO.keys())
+    prmtop_files = get_files(externals.DATA_PATH, ext='tip3_ions.prmtop', given_dirs=pdbs)
+    inpcrd_files = get_files(externals.DATA_PATH, ext='tip3_ions.inpcrd', given_dirs=pdbs)
+    pdb_files = get_files(externals.DATA_PATH, ext='tip3_ions.pdb', given_dirs=pdbs)
 
     for prmtop_file in prmtop_files:
         inpcrd_file = [inpcrd_file for inpcrd_file in inpcrd_files if inpcrd_file[:-7] == prmtop_file[:-7]][0]
         complex_file = [file for file in pdb_files if file[:-4] == prmtop_file[:-7]][0]
+
         first, last = get_protein_range(complex_file)
-        ab_conformations = ['6EYA', '5UGS', '5LNZ', '6DJ1', '2YKJ', '5J2X']
 
-        create_dir(path=prmtop_file[:70], name='amber')
-        output_path = f'{prmtop_file[:70]}/amber/'
-
-        if prmtop_file[-26:-22] in ab_conformations:
-            complex_name = prmtop_file[-26:-17]
-        else:
-            complex_name = prmtop_file[-25:-17]
+        create_dir(path=prmtop_file[:69], name='amber')
+        output_path = f'{prmtop_file[:69]}amber/'
+        prmtop_icm = f'{externals.ICM_PATH}/{prmtop_file[64:]}'
+        inpcrd_icm = f'{externals.ICM_PATH}/{inpcrd_file[64:]}'
+        complex_name = prmtop_file[64:68] if prmtop_file[64:68] not in externals.ab else prmtop_file[69:75]
 
         create_bash_file(output_filename=f'{output_path}{complex_name}_min-500',
                          content=[
@@ -171,66 +159,44 @@ def run() -> None:
                           job_name=f'{complex_name}-amber',
                           slurm_out=f'{complex_name}-amber_slurm.out',
                           command=
-                          f'srun sander.MPI -O -i {output_path}{complex_name}_min-500 -p {prmtop_file} -c {inpcrd_file} -ref '
-                          f'{inpcrd_file} -o {output_path}{complex_name}-min-500.ou -r '
-                          f'{output_path}{complex_name}-min-500.crd -inf '
-                          f'{output_path}{complex_name}-min-500.log\n'
+                          f'srun sander.MPI -O -i {complex_name}_min-500 -p {prmtop_icm} -c {inpcrd_icm} '
+                          f'-ref {inpcrd_icm} -o {complex_name}-min-500.ou -r '
+                          f'{complex_name}-min-500.crd -inf {complex_name}-min-500.log\n'
                           
-                          f'srun sander.MPI -O -i {output_path}{complex_name}_min-100 -p {prmtop_file} -c '
-                          f'{output_path}{complex_name}-min-500.crd -ref '
-                          f'{output_path}{complex_name}-min-500.crd -o ' 
-                          f'{output_path}{complex_name}-min-100.ou -r '
-                          f'{output_path}{complex_name}-min-100.crd -inf '
-                          f'{output_path}{complex_name}-min-100.log\n'
+                          f'srun sander.MPI -O -i {complex_name}_min-100 -p {prmtop_icm} -c '
+                          f'{complex_name}-min-500.crd -ref {complex_name}-min-500.crd -o {complex_name}-min-100.ou -r '
+                          f'{complex_name}-min-100.crd -inf {complex_name}-min-100.log\n'
                           
-                          f'srun sander.MPI -O -i {output_path}{complex_name}_min-5 -p {prmtop_file} -c '
-                          f'{output_path}{complex_name}-min-100.crd -ref '
-                          f'{output_path}{complex_name}-min-100.crd -o '
-                          f'{output_path}{complex_name}-min-5.ou -r '
-                          f'{output_path}{complex_name}-min-5.crd -inf '
-                          f'{output_path}{complex_name}-min-5.log\n'
+                          f'srun sander.MPI -O -i {complex_name}_min-5 -p {prmtop_icm} -c '
+                          f'{complex_name}-min-100.crd -ref {complex_name}-min-100.crd -o {complex_name}-min-5.ou -r '
+                          f'{complex_name}-min-5.crd -inf {complex_name}-min-5.log\n'
                           
-                          f'srun sander.MPI -O -i {output_path}{complex_name}_min -p {prmtop_file} -c '
-                          f'{output_path}{complex_name}-min-5.crd -ref '
-                          f'{output_path}{complex_name}-min-5.crd -o '
-                          f'{output_path}{complex_name}-min.ou -r '
-                          f'{output_path}{complex_name}-min.crd -inf '
-                          f'{output_path}{complex_name}-min.log\n'
+                          f'srun sander.MPI -O -i {complex_name}_min -p {prmtop_icm} -c '
+                          f'{complex_name}-min-5.crd -ref {complex_name}-min-5.crd -o {complex_name}-min.ou -r '
+                          f'{complex_name}-min.crd -inf {complex_name}-min.log\n'
                           
-                          f'srun sander.MPI -O -i {output_path}{complex_name}_heat -p {prmtop_file} -c '
-                          f'{output_path}{complex_name}-min.crd -ref '
-                          f'{output_path}{complex_name}-min.crd -o '
-                          f'{output_path}{complex_name}-heat.ou -r '
-                          f'{output_path}{complex_name}-heat.crd -inf '
-                          f'{output_path}{complex_name}-heat.log\n'
+                          f'srun sander.MPI -O -i {complex_name}_heat -p {prmtop_icm} -c '
+                          f'{complex_name}-min.crd -ref {complex_name}-min.crd -o {complex_name}-heat.ou -r '
+                          f'{complex_name}-heat.crd -inf {complex_name}-heat.log\n'
                           
-                          f'srun sander.MPI -O -i {output_path}{complex_name}-equil-NPT-50 -p {prmtop_file} -c '
-                          f'{output_path}{complex_name}-heat.crd -ref '
-                          f'{output_path}{complex_name}-heat.crd -o '
-                          f'{output_path}{complex_name}-equil-NPT-50.ou -r '
-                          f'{output_path}{complex_name}-equil-NPT-50.crd -inf '
-                          f'{output_path}{complex_name}-equil-NPT-50.log\n'
+                          f'srun sander.MPI -O -i {complex_name}-equil-NPT-50 -p {prmtop_icm} -c '
+                          f'{complex_name}-heat.crd -ref {complex_name}-heat.crd -o {complex_name}-equil-NPT-50.ou -r '
+                          f'{complex_name}-equil-NPT-50.crd -inf {complex_name}-equil-NPT-50.log\n'
                           
-                          f'srun sander.MPI -O -i {output_path}{complex_name}-equil-NPT-10 -p {prmtop_file} -c '
-                          f'{output_path}{complex_name}-equil-NPT-50.crd -ref '
-                          f'{output_path}{complex_name}-equil-NPT-50.crd -o '
-                          f'{output_path}{complex_name}-equil-NPT-10.ou -r '
-                          f'{output_path}{complex_name}-equil-NPT-10.crd -inf '
-                          f'{output_path}{complex_name}-equil-NPT-10.log\n'
+                          f'srun sander.MPI -O -i {complex_name}-equil-NPT-10 -p {prmtop_icm} -c '
+                          f'{complex_name}-equil-NPT-50.crd -ref {complex_name}-equil-NPT-50.crd -o '
+                          f'{complex_name}-equil-NPT-10.ou -r {complex_name}-equil-NPT-10.crd -inf '
+                          f'{complex_name}-equil-NPT-10.log\n'
                           
-                          f'srun sander.MPI -O -i {output_path}{complex_name}-equil-NPT-2 -p {prmtop_file} -c '
-                          f'{output_path}{complex_name}-equil-NPT-10.crd -ref '
-                          f'{output_path}{complex_name}-equil-NPT-10.crd -o '
-                          f'{output_path}{complex_name}-equil-NPT-2.ou -r '
-                          f'{output_path}{complex_name}-equil-NPT-2.crd -inf '
-                          f'{output_path}{complex_name}-equil-NPT-2.log\n'
+                          f'srun sander.MPI -O -i {complex_name}-equil-NPT-2 -p {prmtop_icm} -c '
+                          f'{complex_name}-equil-NPT-10.crd -ref {complex_name}-equil-NPT-10.crd -o '
+                          f'{complex_name}-equil-NPT-2.ou -r {complex_name}-equil-NPT-2.crd -inf '
+                          f'{complex_name}-equil-NPT-2.log\n'
                          
-                          f'srun sander.MPI -O -i {output_path}{complex_name}-equil-NPT -p {prmtop_file} -c '
-                          f'{output_path}{complex_name}-equil-NPT-2.crd -ref '
-                          f'{output_path}{complex_name}-equil-NPT-2.crd -o '
-                          f'{output_path}{complex_name}-equil-NPT.ou -r '
-                          f'{output_path}{complex_name}-equil-NPT.crd -inf '
-                          f'{output_path}{complex_name}-equil-NPT.log')
+                          f'srun sander.MPI -O -i {complex_name}-equil-NPT -p {prmtop_icm} -c '
+                          f'{complex_name}-equil-NPT-2.crd -ref {complex_name}-equil-NPT-2.crd -o '
+                          f'{complex_name}-equil-NPT.ou -r {complex_name}-equil-NPT.crd -inf '
+                          f'{complex_name}-equil-NPT.log')
 
 
 run()

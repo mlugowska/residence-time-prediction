@@ -14,9 +14,10 @@ def determine_bond_and_atom_types(ligand_mol2: str, output_filename: str) -> Non
 
 
 def run() -> None:
-    ligand_files = get_files(externals.LIGAND_PATH, 'HH_noconnect.mol2')
+    pdbs = list(externals.PDB_TO_DO.keys())
+    ligand_files = get_files(externals.DATA_PATH, ext='HH_noconnect.mol2', given_dirs=pdbs)
     for ligand_file in ligand_files:
-        determine_bond_and_atom_types(ligand_file, f'{ligand_file[:-18]}.frcmod')
+        determine_bond_and_atom_types(ligand_mol2=ligand_file, output_filename=f'{ligand_file[:-18]}.frcmod')
 
 
 run()

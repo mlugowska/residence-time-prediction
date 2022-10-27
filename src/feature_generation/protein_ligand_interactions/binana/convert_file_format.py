@@ -1,8 +1,8 @@
 import os
 from subprocess import call
 
-from utils.externals import LIGAND_PATH
-from utils.get_pdb_files import get_files
+from src.utils import externals
+from src.utils.get_pdb_files import get_files
 
 
 def convert(input_files, object):
@@ -14,8 +14,7 @@ def convert(input_files, object):
 
 
 if __name__ == '__main__':
-    # proteins = get_files(PROTEIN_PATH, '.pdb')
-    ligands = get_files(LIGAND_PATH, '.sdf')
+    pdbs = list(externals.PDB_TO_DO.keys())
+    ligands = get_files(externals.DATA_PATH, ext='.sdf', given_dirs=pdbs)
 
-    # convert(proteins, 'protein')
     convert(ligands, 'ligand')

@@ -4,10 +4,6 @@ from src.utils import externals
 from src.utils.get_pdb_files import get_files
 
 
-def read_ligand_name(pdb_file: str):
-    return pdb_file[-10:-7]
-
-
 def remove_connect(file_name: str, file_obj: List):
     excluded = ['CONECT', ]
     with open(file_name, 'w') as outfile:
@@ -19,12 +15,12 @@ def remove_connect(file_name: str, file_obj: List):
 def remove_connects_from_file(structure_files: List):
     for pdb_file in structure_files:
         infile = open(pdb_file, 'r').readlines()
-        ligand_code = read_ligand_name(pdb_file)
-        remove_connect(file_name=f'{pdb_file[:-11]}_{ligand_code}_HH_noconnect.pdb', file_obj=infile)
+        remove_connect(file_name=f'{pdb_file[:-4]}_noconnect.pdb', file_obj=infile)
 
 
 def run():
-    ligand_structures = get_files(externals.LIGAND_PATH, '.pdb')
+    ligand_structures = get_files(externals.DATA_PATH, ext='ligand_HH.pdb', ext_a='ligand_a_HH.pdb',
+                                  ext_b='ligand_b_HH.pdb', given_dirs=list(externals.PDB_TO_DO.keys()))
     remove_connects_from_file(ligand_structures)
 
 

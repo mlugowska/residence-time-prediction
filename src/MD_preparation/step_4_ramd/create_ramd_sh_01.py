@@ -1,8 +1,6 @@
-from src.MD_preparation.step_3_energy_min_heat_equilibration.create_heat_in_namd_03 import get_pdb_id_from_crd_file, \
-    parse_crd_file, change_path
-from src.utils import externals
-from src.utils.get_pdb_files import get_files
-from src.MD_preparation.step_3_energy_min_heat_equilibration.create_bash_file_amber_01 import create_dir
+from utils import externals
+from utils.get_pdb_files import get_files, get_md_files
+from MD_preparation.step_3_energy_min_heat_equilibration.create_bash_file_amber_01 import create_dir
 
 
 def create_ramd_file(output_filename: str, prot_last_atom: int, lig_first_atom: int, lig_last_atom: int,
@@ -10,7 +8,7 @@ def create_ramd_file(output_filename: str, prot_last_atom: int, lig_first_atom: 
                      xsc_file: str, complex_id: str) -> None:
     with open(output_filename, "w") as f:
         lines = [f'maxprot={prot_last_atom}', f'minlig={lig_first_atom}', f'maxlig={lig_last_atom}',
-                 f'molname={complex_id}', 'force=16', f'path={path}',
+                 f'molname={complex_id}', 'force=16', f'rep_no=2', f'path={path}' + '/${rep_no}',
 
                  f'topfile={prmtop_file}', f'rstfile={crd_file}', f'bincoor={coor_file}', f'binvel={vel_file}',
                  f'xscfile={xsc_file}',
@@ -91,13 +89,13 @@ def create_ramd_file(output_filename: str, prot_last_atom: int, lig_first_atom: 
                  'restartname                            ${outdir}/${molname}_${number}_ramd_0${force}.rst',
                  'restartfreq                                 2000',
                  'dcdfile                                ${outdir}/${molname}_${number}_ramd_0${force}.dcd',
-                 'dcdfreq                                     500',
+                 'dcdfreq                                     50',
                  'veldcdfile                            ${outdir}/${molname}_${number}_ramd_0${force}.vcd',
                  'veldcdfreq                                  2000', 'binaryoutput                                 off',
                  'binaryrestart                                 on',
 
                  '# *** Random Acceleration Molecular Dynamics *************************************',
-                 'source /lu/topola/temp/mszpindl/namd-2.13/lib/ramd-4.1/scripts/ramd-4.1.tcl',
+                 'source /lu/topola/temp/mszpindl/namd-2.13/lib/ramd-5.0.4/tcl/ramd-5.tcl',
                  '# *** sources the wrapper script out-4.1.tcl;',
                  "# *** please change the directory '../scripts/' to '$dir' ( the correct path );",
                  "# *** directory '$dir' should contain the scripts: out-4.1.tcl, out-4.1_script.tcl, and vectors.tcl",
@@ -108,7 +106,7 @@ def create_ramd_file(output_filename: str, prot_last_atom: int, lig_first_atom: 
                  'ramd ramdSteps                       50', '# *** specifies the number of steps in 1 out stint; ',
                  '# *** defaults to 50',
 
-                 '#ramd forceRAMD                          ${force}', '# *** specifies the acceleration to be applied; ',
+                 'ramd forceRAMD                          ${force}', '# *** specifies the acceleration to be applied; ',
                  '# *** defaults to 0.25 kcal/mol*A*amu',
 
                  'ramd rMinRamd                         0.025',
@@ -161,11 +159,13 @@ def get_atom_numbers(pdb_file: str, complex_id: str):
         with open(pdb_file, "r") as f:
             lines = f.readlines()
             previous_line = ''
+            previous_previous_line = ''
             for line in lines:
                 if ligand_name in line:
                     if ligand_name not in previous_line:
-                        prot_last_atom = int(previous_line[6:11])
+                        prot_last_atom = int(previous_previous_line[6:11])
                     temp.write(line)
+                previous_previous_line = previous_line
                 previous_line = line
 
     with open(tmp.name) as temp:
@@ -176,29 +176,40 @@ def get_atom_numbers(pdb_file: str, complex_id: str):
 
 
 def run() -> None:
-    prmtop_files = get_files(externals.COMPLEX_PATH, 'prmtop')
-    crd_files = get_files(externals.COMPLEX_PATH, 'equil-NPT.crd')
-    pdbs_after_equil = get_files(externals.COMPLEX_PATH, 'equilibr-first.pdb')
-    coor_files = get_files(externals.COMPLEX_PATH, 'equilibr.coor')
-    xsc_files = get_files(externals.COMPLEX_PATH, 'equilibr.xsc')
-    vel_files = get_files(externals.COMPLEX_PATH, 'equilibr.vel')
+    pdbs = list(externals.PDB_TO_DO.keys())
+    prmtop_files = get_files(externals.DATA_PATH, 'tip3_ions.prmtop', given_dirs=pdbs)
+    pdbs_files = get_files(externals.DATA_PATH, 'tip3_ions.pdb', given_dirs=pdbs)
 
-    for crd_file in crd_files:
+    for pdb_id in pdbs:
         try:
-            pdb_id_idx, prmtop_file_idx, idx, complex_id = get_pdb_id_from_crd_file(crd_file)
-            output_path, output_filename, prmtop_file, pdb_file, coor_file, xsc_file, vel_file = \
-                parse_crd_file(crd_file=crd_file, prmtop_files=prmtop_files, pdb_id_idx=pdb_id_idx,
-                               pdbs_after_equil=pdbs_after_equil, dir_name='ramd', op_type='ramd', pdb=True,
-                               complex_id=complex_id, coor_files=coor_files, vel_files=vel_files, xsc_files=xsc_files)
-            if pdb_file:
-                create_dir(path=crd_file[:71], name='ramd')
-                lig_first_atom, lig_last_atom, prot_last_atom = get_atom_numbers(pdb_file, complex_id)
-                create_ramd_file(path=output_path[:75], complex_id=complex_id, lig_first_atom=lig_first_atom, lig_last_atom=lig_last_atom,
-                                 prot_last_atom=prot_last_atom, output_filename=output_filename, prmtop_file=prmtop_file,
-                                 crd_file=crd_file, coor_file=coor_file, xsc_file=xsc_file, vel_file=vel_file)
-                change_path(output_filename)
+            path = f'{externals.DATA_PATH}/{pdb_id}'
+            create_dir(path=path, name='ramd')
+            create_dir(path=f'{path}/ramd', name='configs')
+
+            crd_file = get_md_files(f'{path}/amber/', 'equil-NPT.crd')[0]
+            prmtop_file = [file for file in prmtop_files if pdb_id in file][0]
+            pdb_file = [file for file in pdbs_files if pdb_id in file][0]
+
+            icm_path = f'{externals.ICM_PATH}/{pdb_id}'
+            icm_crd = f'{icm_path}{crd_file[len(path):]}'
+            icm_prmtop = f'{icm_path}{prmtop_file[len(path):]}'
+
+            coor_file = f'{icm_path}/namd/' + '${rep_no}' + f'/{pdb_id}_{externals.PDB_TO_DO.get(pdb_id)}_equilibr.coor'
+            vel_file = f'{icm_path}/namd/' + '${rep_no}' + f'/{pdb_id}_{externals.PDB_TO_DO.get(pdb_id)}_equilibr.vel'
+            xsc_file = f'{icm_path}/namd/' + '${rep_no}' + f'/{pdb_id}_{externals.PDB_TO_DO.get(pdb_id)}_equilibr.xsc'
+
+            lig_first_atom, lig_last_atom, prot_last_atom = get_atom_numbers(pdb_file, externals.PDB_TO_DO.get(pdb_id))
+
+            output_filename = f'{externals.DATA_PATH}/{pdb_id}/ramd/configs/' \
+                              f'{pdb_id}_{externals.PDB_TO_DO.get(pdb_id)}_RAMD.sh'
+
+            create_ramd_file(output_filename=output_filename, prot_last_atom=prot_last_atom,
+                             lig_first_atom=lig_first_atom, lig_last_atom=lig_last_atom, path=f'{icm_path}/ramd',
+                             prmtop_file=icm_prmtop, crd_file=icm_crd, vel_file=vel_file, coor_file=coor_file,
+                             xsc_file=xsc_file, complex_id=f'{pdb_id}_{externals.PDB_TO_DO.get(pdb_id)}')
+
         except IndexError:
-            print(f'{crd_file[-23:-14]} Equilibration in progress - pdb file not ready')
+            print(f'{pdb_id}: Equilibration in progress - pdb file not ready')
 
 
 run()
